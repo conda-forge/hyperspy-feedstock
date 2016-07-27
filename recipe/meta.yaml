@@ -42,7 +42,7 @@ requirements:
     - ipywidgets >=5.0
     - tqdm
     - python-dateutil
-    - backports_abc # [py34]
+    - backports_abc  # [py34]
 test:
     requires:
         - nose
