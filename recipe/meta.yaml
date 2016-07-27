@@ -1,4 +1,4 @@
-{% set version = "1.0" %}
+{% set version = "1.0.1" %}
 
 package:
   name: hyperspy
@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  md5: 4c50b20c2ff5f3d5f0fe609258e3d2b0
+  sha256: 960f0c3e1a1b2bf5283053dc3d9300f9e21bc2093ad68c1e10586f53521a6c73
 
 build:
   number: 0
