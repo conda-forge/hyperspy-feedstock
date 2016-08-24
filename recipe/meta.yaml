@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: c0dddf173d1611c23ee3077932ba993de212a6d57283f09ee89d6c5927dabc5d 
+  sha256: 83cdc4998f62fbc30fd92bd1eb9096947a974e7b5e22d36cbf139f6a8f773435
 
 build:
   number: 0
