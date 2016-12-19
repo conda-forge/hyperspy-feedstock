@@ -10,7 +10,7 @@ source:
   sha256: 83cdc4998f62fbc30fd92bd1eb9096947a974e7b5e22d36cbf139f6a8f773435
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record record.txt
 
@@ -26,7 +26,7 @@ requirements:
     - jupyter
     - matplotlib >=1.2
     - numpy
-    - qt
+    - qt 4.8.*
     - scikit-image
     - scikit-learn
     - scipy
