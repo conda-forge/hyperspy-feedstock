@@ -6,9 +6,6 @@ if __name__ == '__main__':
     from nose import run_exit
     from traits.etsconfig.api import ETSConfig
     import os
-    # from subprocess import call
-    # call("python setup.py build_ext --inplace",
-    #       shell=True)
     ETSConfig.toolkit = "null"
     import matplotlib
     matplotlib.use("Agg")
