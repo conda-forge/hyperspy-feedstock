@@ -19,7 +19,7 @@ requirements:
   build:
     - python
     - setuptools
-    - cython
+    - cython <=0.24.1
     - numpy
   run:
     - python
