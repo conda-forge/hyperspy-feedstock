@@ -7,9 +7,8 @@ if __name__ == '__main__':
     from traits.etsconfig.api import ETSConfig
     import os
     from subprocess import call
-    # Enable the ipywidget notebook extension.
-    # call("jupyter nbextension enable --py --sys-prefix widgetsnbextension",
-    #      shell=True)
+    call("python setup.py build_ext --inplace",
+          shell=True)
     ETSConfig.toolkit = "null"
     import matplotlib
     matplotlib.use("Agg")
