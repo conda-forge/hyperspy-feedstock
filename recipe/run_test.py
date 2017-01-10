@@ -8,8 +8,8 @@ if __name__ == '__main__':
     import os
     from subprocess import call
     # Enable the ipywidget notebook extension.
-    call("jupyter nbextension enable --py --sys-prefix widgetsnbextension",
-         shell=True)
+    # call("jupyter nbextension enable --py --sys-prefix widgetsnbextension",
+    #      shell=True)
     ETSConfig.toolkit = "null"
     import matplotlib
     matplotlib.use("Agg")
