@@ -6,6 +6,10 @@ if __name__ == '__main__':
     from nose import run_exit
     from traits.etsconfig.api import ETSConfig
     import os
+    from subprocess import call
+    # Enable the ipywidget notebook extension.
+    call("jupyter nbextension enable --py --sys-prefix widgetsnbextension",
+         shell=True)
     ETSConfig.toolkit = "null"
     import matplotlib
     matplotlib.use("Agg")
