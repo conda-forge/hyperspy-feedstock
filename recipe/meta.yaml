@@ -24,7 +24,7 @@ requirements:
     - dill
     - h5py
     - ipython
-    - ipykernel ==4.5.0 | >4.5.2 # avoid buggy 4.5.1 and 4.5.2
+    - ipykernel <=4.5.0,>4.5.2 # avoid buggy 4.5.1 and 4.5.2
     - jupyter
     - matplotlib >=1.2
     - numpy
