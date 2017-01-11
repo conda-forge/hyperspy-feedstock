@@ -6,11 +6,11 @@ package:
 
 source:
   fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 83cdc4998f62fbc30fd92bd1eb9096947a974e7b5e22d36cbf139f6a8f773435
+  url: https://github.com/hyperspy/hyperspy/archive/RELEASE_next_patch.tar.gz 
+  sha256: 01f1e3c4ded7d3eb33cc5eb3248375571f3836759cd5aee2cacfe1303b2b592c
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record record.txt
 
@@ -18,15 +18,18 @@ requirements:
   build:
     - python
     - setuptools
+    - cython
+    - numpy
   run:
     - python
     - dill
     - h5py
     - ipython
+    - ipykernel <=4.5.0 # from 4.5 on one test fails (the test is fixed in hspy 1.1.2)
     - jupyter
     - matplotlib >=1.2
     - numpy
-    - qt
+    - qt <5.0
     - scikit-image
     - scikit-learn
     - scipy
