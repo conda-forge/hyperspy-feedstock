@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://github.com/hyperspy/hyperspy/archive/RELEASE_next_patch.tar.gz 
-  sha256: 7d98a5c28ed0907744eb962cb7e6a5cba6779f2a910a3643626e0ec49ff45b8a 
+  sha256: ba7819e777750d8f971076367adaa1ce2de8b9c56772b92ad5d97125b6ae3440
 
 build:
   number: 1
