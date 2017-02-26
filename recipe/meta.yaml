@@ -25,7 +25,7 @@ requirements:
     - ipython
     - jupyter
     - matplotlib >=1.2
-    - numpy
+    - numpy < 1.12
     - qt 4.8.*
     - scikit-image
     - scikit-learn
