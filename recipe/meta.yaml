@@ -52,7 +52,7 @@ test:
         - pytest
         - pytest-mpl
     commands:
-        - export MPLBACKEND="tkagg"
+        - export MPLBACKEND="agg"
         - py.test --pyargs hyperspy --mpl
 
 about:
