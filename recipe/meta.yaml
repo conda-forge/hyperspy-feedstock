@@ -49,7 +49,8 @@ requirements:
     - backports_abc  # [py34]
 test:
     requires:
-        - nose
+        - pytest
+        - pytest-mpl
 
 about:
   home: https://hyperspy.org
