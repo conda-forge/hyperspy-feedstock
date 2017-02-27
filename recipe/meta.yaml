@@ -39,7 +39,7 @@ requirements:
     - sympy
     - natsort
     - lxml
-    - dask >-=0.13,!=0.14
+    - dask ==0.13,>0.14
     - traits >=4.5
     - traitsui >=5.0
     - requests
