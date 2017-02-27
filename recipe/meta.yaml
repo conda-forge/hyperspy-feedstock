@@ -52,7 +52,7 @@ test:
         - pytest
         - pytest-mpl
     commands:
-        - py.test --pyargs hyperspy --mpl
+        - py.test --pyargs hyperspy
 
 about:
   home: https://hyperspy.org
