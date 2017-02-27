@@ -5,12 +5,15 @@ package:
   version: {{ version }}
 
 source:
-  fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 67e65ede20071bf20a88a4481e66f1be29f438c3827f82396cf955f301dc70dc 
+  fn: hyperspy-skip_dill_test.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/skip_dill_test.tar.gz
+  sha256: c1e4573d49bc18661309a6b36187258c3bd57c2d91996f6327da5f70e2c10f83
+#  fn: hyperspy-{{ version }}.tar.gz
+#  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+#  sha256: 67e65ede20071bf20a88a4481e66f1be29f438c3827f82396cf955f301dc70dc 
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record record.txt
 
@@ -18,6 +21,7 @@ requirements:
   build:
     - python
     - setuptools
+    - cython
   run:
     - python
     - dill
@@ -25,7 +29,7 @@ requirements:
     - ipython
     - jupyter
     - matplotlib >=1.2
-    - numpy
+    - numpy <1.12
     - qt 4.8.*
     - scikit-image
     - scikit-learn
