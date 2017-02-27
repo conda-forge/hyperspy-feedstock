@@ -51,6 +51,8 @@ test:
     requires:
         - pytest
         - pytest-mpl
+    commands:
+        - py.test --pyargs hyperspy --mpl
 
 about:
   home: https://hyperspy.org
