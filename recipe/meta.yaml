@@ -7,7 +7,7 @@ package:
 source:
   fn: RELEASE_v1.2.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.2.tar.gz
-  sha256: cadc98885a17d968c1ff48f4154cceb0820fd4164e57db68c31e12b4b5525330
+  sha256: 6f173bc99e0f0d3dd986c9fe6115dfdc3bff1328f40527da555758f5973fb5d4
 #  fn: hyperspy-{{ version }}.tar.gz
 #  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
 #  sha256: 67e65ede20071bf20a88a4481e66f1be29f438c3827f82396cf955f301dc70dc 
@@ -52,7 +52,8 @@ test:
         - pytest
         - pytest-mpl
     commands:
-        - export MPLBACKEND="agg" # [unix]
+        - export MPLBACKEND="agg"  # [unix]
+        - set MPLBACKEND="agg"  # [win]
         - py.test --pyargs hyperspy --mpl
 
 about:
