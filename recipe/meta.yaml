@@ -29,7 +29,7 @@ requirements:
     - jupyter
     - matplotlib >=1.2
     - numpy >=1.10
-    - scikit-image >= 0.13
+    - scikit-image >=0.13
     - scikit-learn
     - scipy >=0.15
     - statsmodels
@@ -43,7 +43,7 @@ requirements:
     - tqdm >= 0.4.9
     - python-dateutil
     - backports_abc  # [py34]
-    - pint > 0.7
+    - pint >0.7
 test:
     requires:
         - pytest
