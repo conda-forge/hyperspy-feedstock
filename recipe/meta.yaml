@@ -1,4 +1,4 @@
-{% set version = "1.2" %}
+{% set version = "1.3" %}
 
 package:
   name: hyperspy
@@ -6,8 +6,8 @@ package:
 
 source:
   fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}+1.tar.gz
-  sha256: 0de9ab1ce07d113a5fe0f233fcd3e4e291df3d2228b9ace8ac9d9d0f86f81a7e 
+  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  sha256: 00299b5673d8f14dfa12f02fbd12af636f2627f4649ec5b889509e8b682d1763 
 
 build:
   number: 0
@@ -27,8 +27,7 @@ requirements:
     - jupyter
     - matplotlib >=1.2
     - numpy >=1.10
-    - qt 4.8.*
-    - scikit-image
+    - scikit-image >=0.13
     - scikit-learn
     - scipy >=0.15
     - statsmodels
@@ -36,14 +35,14 @@ requirements:
     - sympy
     - natsort
     - lxml
-    - dask ==0.13|>0.14
+    - dask >=0.14.3
     - traits >=4.5
-    - traitsui >=5.0
     - requests
-    - ipywidgets >=5.0
-    - tqdm
+    - tqdm >=0.4.9
     - python-dateutil
     - backports_abc  # [py34]
+    - pint >0.7
+    - numba 
 test:
     requires:
         - pytest
