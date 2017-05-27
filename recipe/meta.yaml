@@ -9,7 +9,7 @@ source:
 #  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}+1.tar.gz
   fn: RELEASE_v1.3.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.3.tar.gz 
-  sha256: b0a51099d11ca218582bbbdbbf5f0c3a8ac8a4453cb6e56df4c5a24aabdec06c 
+  sha256: 073a8ebb12c5506ef63d4a11e6b13d41c56f4f532fd0db3a057adc023c14b9ce 
 
 build:
   number: 0
@@ -44,6 +44,7 @@ requirements:
     - python-dateutil
     - backports_abc  # [py34]
     - pint >0.7
+    - numba 
 test:
     requires:
         - pytest
