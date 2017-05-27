@@ -5,11 +5,9 @@ package:
   version: {{ version }}
 
 source:
-#  fn: hyperspy-{{ version }}.tar.gz
-#  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}+1.tar.gz
-  fn: RELEASE_v1.3.tar.gz
-  url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.3.tar.gz 
-  sha256: 073a8ebb12c5506ef63d4a11e6b13d41c56f4f532fd0db3a057adc023c14b9ce 
+  fn: hyperspy-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  sha256: 00299b5673d8f14dfa12f02fbd12af636f2627f4649ec5b889509e8b682d1763 
 
 build:
   number: 0
