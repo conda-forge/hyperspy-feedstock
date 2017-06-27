@@ -35,7 +35,7 @@ requirements:
     - sympy
     - natsort
     - lxml
-    - dask >=0.14.3
+    - dask ==0.14.3
     - traits >=4.5
     - requests
     - tqdm >=0.4.9
