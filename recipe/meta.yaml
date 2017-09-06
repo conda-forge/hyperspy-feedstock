@@ -10,7 +10,7 @@ source:
   sha256: 00299b5673d8f14dfa12f02fbd12af636f2627f4649ec5b889509e8b682d1763 
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: python setup.py install --single-version-externally-managed --record record.txt
 
@@ -35,7 +35,7 @@ requirements:
     - sympy
     - natsort
     - lxml
-    - dask >=0.14.3
+    - dask ==0.14.3
     - traits >=4.5
     - requests
     - tqdm >=0.4.9
@@ -43,6 +43,9 @@ requirements:
     - backports_abc  # [py34]
     - pint >0.7
     - numba 
+    - hyperspy-gui-ipywidgets
+    - numexpr
+
 test:
     requires:
         - pytest
