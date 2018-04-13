@@ -1,13 +1,13 @@
-{% set version = "1.3" %}
+{% set version = "1.3.1" %}
 
 package:
   name: hyperspy
   version: {{ version }}
 
 source:
-  fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 00299b5673d8f14dfa12f02fbd12af636f2627f4649ec5b889509e8b682d1763 
+  fn: hyperspy-RELEASE_next_patch.tar.gz
+  url: https://github.com/hyperspy/hyperspy/archive/RELEASE_next_patch.tar.gz
+  sha256: 5f621057c63b69bd558ea778cd637faf3481f2a93d4a9ce2bb543357e6c1e74f
 
 build:
   number: 0
@@ -43,6 +43,7 @@ requirements:
     - backports_abc  # [py34]
     - pint >0.7
     - numba 
+    - hyperspy-gui-ipywidgets
 test:
     requires:
         - pytest
