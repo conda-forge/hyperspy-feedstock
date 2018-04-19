@@ -1,13 +1,13 @@
-{% set version = "1.3" %}
+{% set version = "1.3.1" %}
 
 package:
   name: hyperspy
   version: {{ version }}
 
 source:
-  fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 00299b5673d8f14dfa12f02fbd12af636f2627f4649ec5b889509e8b682d1763 
+  fn: hyperspy-{{ version }}-1.tar.gz
+  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}-1.tar.gz
+  sha256: 228f96a8e69253677bf5023e3d73b1d23c00bb3e8afc49a44b670ec3119685f9
 
 build:
   number: 0
@@ -43,13 +43,15 @@ requirements:
     - backports_abc  # [py34]
     - pint >0.7
     - numba 
+    - hyperspy-gui-ipywidgets
 test:
     requires:
         - pytest
         - pytest-mpl
+        - freetype 2.8*
     commands:
-        - export MPLBACKEND="agg"  # [unix]
-        - set MPLBACKEND="agg"  # [win]
+        - export MPLBACKEND=agg  # [unix]
+        - set MPLBACKEND=agg  # [win]
         - py.test --pyargs hyperspy --mpl
 
 about:
