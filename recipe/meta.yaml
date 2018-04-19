@@ -50,8 +50,8 @@ test:
         - pytest-mpl
         - freetype 2.8*
     commands:
-        - export MPLBACKEND="agg"  # [unix]
-        - set MPLBACKEND="agg"  # [win]
+        - export MPLBACKEND=agg  # [unix]
+        - set MPLBACKEND=agg  # [win]
         - py.test --pyargs hyperspy --mpl
 
 about:
