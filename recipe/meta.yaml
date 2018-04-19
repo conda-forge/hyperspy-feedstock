@@ -5,9 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  fn: hyperspy-RELEASE_next_patch.tar.gz
-  url: https://github.com/hyperspy/hyperspy/archive/RELEASE_next_patch.tar.gz
-  sha256: 513f32b9700a29b28d08c8536239830d18183d5cd28faa22094cc9d5bfa161e9 
+  fn: hyperspy-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  sha256: e02c0d5eaad86cbc0960c709b5110ede9cbf6fcc2478f737418fcf065bf28967 
 
 build:
   number: 0
