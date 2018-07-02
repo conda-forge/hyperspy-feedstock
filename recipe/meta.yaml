@@ -1,13 +1,13 @@
-{% set version = "1.3.1" %}
+{% set version = "1.3.2" %}
 
 package:
   name: hyperspy
   version: {{ version }}
 
 source:
-  fn: hyperspy-{{ version }}-1.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}-1.tar.gz
-  sha256: 228f96a8e69253677bf5023e3d73b1d23c00bb3e8afc49a44b670ec3119685f9
+  fn: hyperspy-RELEASE_v1.3.2.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.3.2.tar.gz
+  sha256: f2ab098abd6f5bd5107c8234096b9e4ec172dfb75d4236010addeaa6d7c82e74
 
 build:
   number: 0
