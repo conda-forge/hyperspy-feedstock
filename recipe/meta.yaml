@@ -25,7 +25,7 @@ requirements:
     - h5py
     - ipython
     - jupyter
-    - matplotlib >=1.2
+    - matplotlib > 2.1.1
     - numpy >=1.10
     - scikit-image >=0.13
     - scikit-learn
@@ -39,9 +39,9 @@ requirements:
     - traits >=4.5
     - requests
     - tqdm >=0.4.9
-    - python-dateutil
+    - python-dateutil >=2.5
     - backports_abc  # [py34]
-    - pint >0.7
+    - pint >0.8
     - numba 
     - hyperspy-gui-ipywidgets
 test:
