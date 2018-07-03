@@ -6,7 +6,7 @@ package:
 
 source:
   fn: hyperspy-RELEASE_v1.3.2.tar.gz
-  url: https://test-files.pythonhosted.org/packages/1b/39/2560477ff5d7d2fb9c23e691c7ab0980198c646091df11d04cbf0f4d03e0/hyperspy-1.3.2.tar.g 
+  url: https://test-files.pythonhosted.org/packages/1b/39/2560477ff5d7d2fb9c23e691c7ab0980198c646091df11d04cbf0f4d03e0/hyperspy-1.3.2.tar.gz 
   sha256: a07e37bea2501d9a91a965a3dd4fd4bba68954888b021a75eec07534ad9b110e 
 
 build:
