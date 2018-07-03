@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-RELEASE_v1.3.2.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.3.2.tar.gz
-  sha256: f2ab098abd6f5bd5107c8234096b9e4ec172dfb75d4236010addeaa6d7c82e74
+  sha256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 
 
 build:
   number: 0
@@ -35,7 +35,7 @@ requirements:
     - sympy
     - natsort
     - lxml
-    - dask >=0.14.3
+    - dask >=0.18
     - traits >=4.5
     - requests
     - tqdm >=0.4.9
