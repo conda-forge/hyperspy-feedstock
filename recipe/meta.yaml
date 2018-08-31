@@ -52,7 +52,7 @@ test:
     requires:
         - pytest
         - pytest-mpl
-        - freetype 2.8*
+        - freetype 2.9.*
     commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
