@@ -7,12 +7,12 @@ package:
 source:
   fn: hyperspy-RELEASE_v1.4.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.4.tar.gz
-  sha256: 6d914494d1d437fcded0885a1f4926a94eb138598b3b90e950630f09f747087d 
+  sha256: 9d3c8db77c1c8f2411613de6f0a24d8eec40f777cf7197e491db4cf8e64c5771 
 
 build:
   number: 0
   skip: True  # [py2k]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
@@ -21,6 +21,7 @@ requirements:
     - python
     - setuptools
     - cython
+    - pip
   run:
     - python
     - dill
