@@ -1,13 +1,13 @@
-{% set version = "1.3.2" %}
+{% set version = "1.4" %}
 
 package:
   name: hyperspy
   version: {{ version }}
 
 source:
-  fn: hyperspy-RELEASE_v1.3.2.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: bb1fbe5665201d758b3379d6fb4362ab015b11b2203e16c1e5abcf783490b5bd 
+  fn: hyperspy-RELEASE_v1.4.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.4.tar.gz
+  sha256: 945be85b184510bace9c5614ce88fb4b2f87d9131f641cf197e7c180726fb17f 
 
 build:
   number: 0
@@ -27,8 +27,8 @@ requirements:
     - h5py
     - ipython
     - jupyter
-    - matplotlib >2.1.1
-    - numpy >=1.10
+    - matplotlib >2.2.2
+    - numpy >1.13
     - scikit-image >=0.13
     - scikit-learn
     - scipy >=0.15
@@ -44,8 +44,11 @@ requirements:
     - python-dateutil >=2.5
     - backports_abc  # [py34]
     - pint >0.8
-    - numba 
+    - numba
+    - numexpr
+    - mrcz >=0.3.6
     - hyperspy-gui-ipywidgets
+    - sparse
 test:
     requires:
         - pytest
