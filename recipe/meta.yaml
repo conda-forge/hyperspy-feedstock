@@ -48,6 +48,7 @@ requirements:
     - numba
     - numexpr
     - hyperspy-gui-ipywidgets
+    - hyperspy-gui-traitsui
     - sparse
 test:
     requires:
