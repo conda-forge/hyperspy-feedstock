@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-Remove_EDAX_files.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/Remove_EDAX_files.tar.gz
-  sha256:  022f54da4ce72aef4447579ec12733133bc55441c4b59ce3b606bcf9899ca86f
+  sha256:  ffb687425c95966d278418fe1d760fb85804f53f9e3298f648cc4acc82a612eb
 
 build:
   number: 0
