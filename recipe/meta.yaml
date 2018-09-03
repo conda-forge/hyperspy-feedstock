@@ -1,18 +1,18 @@
-{% set version = "1.3.2" %}
+{% set version = "1.4" %}
 
 package:
   name: hyperspy
   version: {{ version }}
 
 source:
-  fn: hyperspy-RELEASE_v1.3.2.tar.gz
+  fn: hyperspy-1.4.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: bb1fbe5665201d758b3379d6fb4362ab015b11b2203e16c1e5abcf783490b5bd 
+  sha256: 545ce9f49f0c5abf8d7805cf81b3fee7db4a119dabca676d86a8a42e357ce408 
 
 build:
   number: 0
   skip: True  # [py2k]
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   build:
@@ -21,14 +21,15 @@ requirements:
     - python
     - setuptools
     - cython
+    - pip
   run:
     - python
     - dill
     - h5py
     - ipython
     - jupyter
-    - matplotlib >2.1.1
-    - numpy >=1.10
+    - matplotlib >2.2.2
+    - numpy >1.13
     - scikit-image >=0.13
     - scikit-learn
     - scipy >=0.15
@@ -44,13 +45,16 @@ requirements:
     - python-dateutil >=2.5
     - backports_abc  # [py34]
     - pint >0.8
-    - numba 
+    - numba <0.39
+    - numexpr
     - hyperspy-gui-ipywidgets
+    - hyperspy-gui-traitsui
+    - sparse
 test:
     requires:
         - pytest
         - pytest-mpl
-        - freetype 2.8*
+        - freetype 2.9.*
     commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
