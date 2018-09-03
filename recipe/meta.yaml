@@ -5,9 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  fn: hyperspy-RELEASE_v1.4.tar.gz
-  url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.4.tar.gz
-  sha256: 9d3c8db77c1c8f2411613de6f0a24d8eec40f777cf7197e491db4cf8e64c5771 
+  fn: hyperspy-Remove_EDAX_files.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/Remove_EDAX_files.tar.gz
+  sha256:  022f54da4ce72aef4447579ec12733133bc55441c4b59ce3b606bcf9899ca86f
 
 build:
   number: 0
