@@ -28,7 +28,7 @@ requirements:
     - h5py
     - ipython
     - jupyter
-    - matplotlib >2.2.2
+    - matplotlib >2.2.2, <3.0
     - numpy >1.13
     - scikit-image >=0.13
     - scikit-learn
