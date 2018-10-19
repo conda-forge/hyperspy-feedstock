@@ -56,6 +56,7 @@ test:
         - pytest
         - pytest-mpl
         - freetype 2.9.*
+        - matplotlib <3.0  
     commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
