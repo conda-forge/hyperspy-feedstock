@@ -46,7 +46,7 @@ requirements:
     - python-dateutil >=2.5
     - backports_abc  # [py34]
     - pint >0.8
-    - numba <0.39
+    - numba
     - numexpr
     # - hyperspy-gui-ipywidgets
     # - hyperspy-gui-traitsui
