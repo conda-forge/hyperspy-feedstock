@@ -47,8 +47,8 @@ requirements:
     - pint >0.8
     - numba <0.39
     - numexpr
-    - hyperspy-gui-ipywidgets
-    - hyperspy-gui-traitsui
+    # - hyperspy-gui-ipywidgets
+    # - hyperspy-gui-traitsui
     - sparse
 test:
     requires:
