@@ -5,12 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  fn: hyperspy-1.4.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 545ce9f49f0c5abf8d7805cf81b3fee7db4a119dabca676d86a8a42e357ce408 
+  fn: hyperspy-1.4.1.tar.gz
+  # url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/v1.4.1.tar.gz 
+  sha256: d0ba66675413a2446ecc6a73b4f33a07251882b1968a4020ce967b433b8d646c
 
 build:
-  number: 1001
+  number: 1
   skip: True  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
