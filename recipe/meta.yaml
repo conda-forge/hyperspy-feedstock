@@ -8,7 +8,7 @@ source:
   fn: hyperspy-1.4.1.tar.gz
   # url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/v1.4.1.tar.gz 
-  sha256: 7741304447742b0ded02688fcac25293c0651ae21f285cac449bb1a570379816
+  sha256: 2bd21ba015c461880c9f118d954dd5507f0c48ea4f892f22e231166f3c81ebcb
 
 build:
   number: 0
