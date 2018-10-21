@@ -38,7 +38,6 @@ requirements:
     - ipyparallel
     - sympy
     - natsort
-    - lxml
     - dask >=0.18
     - traits >=4.5
     - requests
