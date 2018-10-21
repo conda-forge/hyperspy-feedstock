@@ -8,7 +8,7 @@ source:
   fn: hyperspy-1.4.1.tar.gz
   # url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/v1.4.1.tar.gz 
-  sha256: 5336231a7cb98c23a578d6da1df4c01b11ff600d4ffa93094c4d3b9df3de774f
+  sha256: 020f0ce6191d55d7ce6bbceca45ac310953416ac5eb11dd19afc8ca77d3a5c71
 
 build:
   number: 0
@@ -57,6 +57,7 @@ test:
         - pytest-mpl
         - freetype 2.9.*
         - matplotlib <3.0  
+        - pillow >5.2
     commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
