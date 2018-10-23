@@ -5,12 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  fn: hyperspy-1.4.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 545ce9f49f0c5abf8d7805cf81b3fee7db4a119dabca676d86a8a42e357ce408 
+  fn: hyperspy-1.4.1.tar.gz
+  # url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/v1.4.1.tar.gz 
+  sha256: d8355f690ce17653d5941f5bbad8f8ed61b26f7e9a122d3439f4237a05c3e1fe 
 
 build:
-  number: 1
+  number: 0
   skip: True  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
@@ -37,7 +38,6 @@ requirements:
     - ipyparallel
     - sympy
     - natsort
-    - lxml
     - dask >=0.18
     - traits >=4.5
     - requests
@@ -45,16 +45,18 @@ requirements:
     - python-dateutil >=2.5
     - backports_abc  # [py34]
     - pint >0.8
-    - numba <0.39
+    - numba
     - numexpr
-    - hyperspy-gui-ipywidgets
-    - hyperspy-gui-traitsui
+    # - hyperspy-gui-ipywidgets
+    # - hyperspy-gui-traitsui
     - sparse
 test:
     requires:
         - pytest
         - pytest-mpl
         - freetype 2.9.*
+        - matplotlib <3.0  
+        - pillow >5.2
     commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
