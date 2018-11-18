@@ -59,9 +59,11 @@ outputs:
         - py.test --pyargs hyperspy --mpl
   - name: hyperspy
     requirements:
+      host:
+        - python
       run:
         - python
-        - hyperspy-base {{ version }}
+        - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - hyperspy-gui-ipywidgets >=1.1
         - hyperspy-gui-traitsui >=1.1
 
