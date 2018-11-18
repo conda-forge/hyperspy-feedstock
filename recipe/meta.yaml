@@ -12,10 +12,10 @@ source:
 build:
   number: 1
   skip: True  # [py2k]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 outputs:
   - name: hyperspy-base
+    script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
     requirements:
       build:
         - {{ compiler('c') }}
@@ -59,8 +59,6 @@ outputs:
         - py.test --pyargs hyperspy --mpl
   - name: hyperspy
     requirements:
-      host:
-        - python
       run:
         - python
         - hyperspy-base {{ version }}
