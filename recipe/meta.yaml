@@ -10,56 +10,61 @@ source:
   sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-  host:
-    - python
-    - setuptools
-    - cython
-    - pip
-  run:
-    - python
-    - dill
-    - h5py
-    - ipython
-    - jupyter
-    - matplotlib >2.2.2
-    - numpy >1.13
-    - scikit-image >=0.13
-    - scikit-learn
-    - scipy >=0.15
-    - statsmodels
-    - ipyparallel
-    - sympy
-    - natsort
-    - dask >=0.18
-    - traits >=4.5
-    - requests
-    - tqdm >=0.4.9
-    - python-dateutil >=2.5
-    - backports_abc  # [py34]
-    - pint >0.8
-    - numba
-    - numexpr
-    # - hyperspy-gui-ipywidgets >=1.1
-    # - hyperspy-gui-traitsui >=1.1
-    - sparse
-test:
-    requires:
+outputs:
+  - name: hyperspy-base
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - python
+        - setuptools
+        - cython
+        - pip
+      run:
+        - python
+        - dill
+        - h5py
+        - ipython
+        - jupyter
+        - matplotlib >2.2.2
+        - numpy >1.13
+        - scikit-image >=0.13
+        - scikit-learn
+        - scipy >=0.15
+        - statsmodels
+        - ipyparallel
+        - sympy
+        - natsort
+        - dask >=0.18
+        - traits >=4.5
+        - requests
+        - tqdm >=0.4.9
+        - python-dateutil >=2.5
+        - pint >0.8
+        - numba
+        - numexpr
+        - sparse
+    test:
+      requires:
         - pytest
-        - pytest-mpl
-        - freetype 2.9.*
         - matplotlib <3.0  
         - pillow >5.2
-    commands:
+      commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
         - py.test --pyargs hyperspy --mpl
+  - name: hyperspy
+      host:
+        - python
+      run:
+        - python
+        - hyperspy-base {{ version }}
+        - hyperspy-gui-ipywidgets >=1.1
+        - hyperspy-gui-traitsui >=1.1
 
 about:
   home: https://hyperspy.org
