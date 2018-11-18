@@ -58,6 +58,7 @@ outputs:
         - set MPLBACKEND=agg  # [win]
         - py.test --pyargs hyperspy --mpl
   - name: hyperspy
+    requirements:
       host:
         - python
       run:
