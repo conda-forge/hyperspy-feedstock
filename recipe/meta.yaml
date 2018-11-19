@@ -64,8 +64,8 @@ outputs:
       run:
         - python
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets >=1.1
-        - hyperspy-gui-traitsui >=1.1
+        - hyperspy-gui-ipywidgets
+        - hyperspy-gui-traitsui
 
 about:
   home: https://hyperspy.org
