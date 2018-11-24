@@ -118,6 +118,19 @@ outputs:
         - hyperspy.samfire_utils.weights
         - hyperspy.utils
 
+  - name: hyperspy-dev
+    requirements:
+      run:
+        - python
+        - cython
+        - {{ pin_subpackage('hyperspy-base', exact=True) }}
+        - pytest
+        - pytest-mpl
+        - matplotlib <3.0  
+        - numpydoc
+        - sphinx
+        - sphinx_rtd_theme
+
 about:
   home: https://hyperspy.org
   license: GPL v3
