@@ -136,6 +136,8 @@ about:
   license: GPL v3
   summary: Multi-dimensional data analysis
   license_file: COPYING.txt
+  dev_url: https://github.com/hyperspy/hyperspy/
+  doc_url: http://hyperspy.org/hyperspy-doc/current/user_guide/index.html
 
 extra:
   recipe-maintainers:
