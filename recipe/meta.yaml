@@ -1,7 +1,7 @@
 {% set version = "1.4.1" %}
 
 package:
-  name: hyperspy
+  name: hyperspy-split
   version: {{ version }}
 
 source:
@@ -15,7 +15,8 @@ build:
 
 outputs:
   - name: hyperspy-base
-    script: "python -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
+    script: install.sh  # [not win]
+    script: install.bat  # [win]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -52,20 +53,20 @@ outputs:
       requires:
         - pytest
         - matplotlib <3.0  
-        - pillow >5.2
+        - pytest-mpl
       commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
         - py.test --pyargs hyperspy --mpl
+
   - name: hyperspy
     requirements:
-      host:
-        - python
       run:
         - python
+        - pyqt
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets
-        - hyperspy-gui-traitsui
+        - hyperspy-gui-ipywidgets >=1.1
+        - hyperspy-gui-traitsui >=1.1
 
 about:
   home: https://hyperspy.org
