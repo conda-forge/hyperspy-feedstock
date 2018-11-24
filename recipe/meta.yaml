@@ -49,6 +49,7 @@ outputs:
         - numba
         - numexpr
         - sparse
+        - pillow >5.2  # [win]
     test:
       requires:
         - pytest
