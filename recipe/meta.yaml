@@ -1,7 +1,7 @@
 {% set version = "1.4.1" %}
 
 package:
-  name: hyperspy-split
+  name: hyperspy-meta
   version: {{ version }}
 
 source:
@@ -68,7 +68,11 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - hyperspy-gui-ipywidgets >=1.1
         - hyperspy-gui-traitsui >=1.1
+        - jupyterlab >=0.35.4
+        - nodejs
     test:
+      commands:
+        - export QT_QPA_PLATFORM=offscreen  # [unix]
       imports:
         - hyperspy
         - hyperspy.Release

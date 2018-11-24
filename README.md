@@ -1,5 +1,5 @@
-About hyperspy
-==============
+About hyperspy-meta
+===================
 
 Home: https://hyperspy.org
 
@@ -16,7 +16,7 @@ Current build status
 
 [![Linux](https://img.shields.io/circleci/project/github/conda-forge/hyperspy-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/hyperspy-feedstock)
 [![OSX](https://img.shields.io/travis/conda-forge/hyperspy-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/hyperspy-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/hyperspy-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/hyperspy-feedstock/branch/master)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
@@ -24,20 +24,22 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy-green.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy--base-green.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy--dev-green.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) |
 
-Installing hyperspy
-===================
+Installing hyperspy-meta
+========================
 
-Installing `hyperspy` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `hyperspy-meta` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 ```
 
-Once the `conda-forge` channel has been enabled, `hyperspy` can be installed with:
+Once the `conda-forge` channel has been enabled, `hyperspy, hyperspy-base, hyperspy-dev` can be installed with:
 
 ```
-conda install hyperspy
+conda install hyperspy hyperspy-base hyperspy-dev
 ```
 
 It is possible to list all of the versions of `hyperspy` available on your platform with:
@@ -83,17 +85,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating hyperspy-feedstock
-===========================
+Updating hyperspy-meta-feedstock
+================================
 
-If you would like to improve the hyperspy recipe or build a new
+If you would like to improve the hyperspy-meta recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/hyperspy-feedstock are
+Note that all branches in the conda-forge/hyperspy-meta-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
