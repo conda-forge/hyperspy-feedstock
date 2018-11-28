@@ -55,24 +55,6 @@ outputs:
         - pytest
         - matplotlib <3.0  
         - pytest-mpl
-      commands:
-        - export MPLBACKEND=agg  # [unix]
-        - set MPLBACKEND=agg  # [win]
-        - py.test --pyargs hyperspy --mpl
-
-  - name: hyperspy
-    requirements:
-      run:
-        - python
-        - pyqt
-        - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets >=1.1
-        - hyperspy-gui-traitsui >=1.1
-        - jupyterlab >=0.35.4
-        - nodejs
-    test:
-      commands:
-        - export QT_QPA_PLATFORM=offscreen  # [unix]
       imports:
         - hyperspy
         - hyperspy.Release
@@ -121,6 +103,21 @@ outputs:
         - hyperspy.samfire_utils.segmenters
         - hyperspy.samfire_utils.weights
         - hyperspy.utils
+      commands:
+        - export MPLBACKEND=agg  # [unix]
+        - set MPLBACKEND=agg  # [win]
+        - pytest --pyargs hyperspy --mpl
+
+  - name: hyperspy
+    requirements:
+      run:
+        - python
+        - pyqt
+        - {{ pin_subpackage('hyperspy-base', exact=True) }}
+        - hyperspy-gui-ipywidgets >=1.1
+        - hyperspy-gui-traitsui >=1.1
+        - jupyterlab >=0.35.4
+        - nodejs
 
   - name: hyperspy-dev
     requirements:
