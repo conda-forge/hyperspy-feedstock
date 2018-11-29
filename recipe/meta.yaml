@@ -1,7 +1,7 @@
 {% set version = "1.4.1" %}
 
 package:
-  name: hyperspy
+  name: hyperspy-meta
   version: {{ version }}
 
 source:
@@ -10,62 +10,135 @@ source:
   sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
-  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-  host:
-    - python
-    - setuptools
-    - cython
-    - pip
-  run:
-    - python
-    - dill
-    - h5py
-    - ipython
-    - jupyter
-    - matplotlib >2.2.2
-    - numpy >1.13
-    - scikit-image >=0.13
-    - scikit-learn
-    - scipy >=0.15
-    - statsmodels
-    - ipyparallel
-    - sympy
-    - natsort
-    - dask >=0.18
-    - traits >=4.5
-    - requests
-    - tqdm >=0.4.9
-    - python-dateutil >=2.5
-    - backports_abc  # [py34]
-    - pint >0.8
-    - numba
-    - numexpr
-    # - hyperspy-gui-ipywidgets >=1.1
-    # - hyperspy-gui-traitsui >=1.1
-    - sparse
-test:
-    requires:
+outputs:
+  - name: hyperspy-base
+    script: install.sh  # [not win]
+    script: install.bat  # [win]
+    requirements:
+      build:
+        - {{ compiler('c') }}
+      host:
+        - python
+        - setuptools
+        - cython
+        - pip
+      run:
+        - python
+        - dill
+        - h5py
+        - ipython
+        - jupyter
+        - matplotlib >2.2.2
+        - numpy >1.13
+        - scikit-image >=0.13
+        - scikit-learn
+        - scipy >=0.15
+        - statsmodels
+        - ipyparallel
+        - sympy
+        - natsort
+        - dask >=0.18
+        - traits >=4.5
+        - requests
+        - tqdm >=0.4.9
+        - python-dateutil >=2.5
+        - pint >0.8
+        - numba
+        - numexpr
+        - sparse
+        - pillow >5.2  # [win]
+    test:
+      requires:
         - pytest
-        - pytest-mpl
-        - freetype 2.9.*
         - matplotlib <3.0  
-        - pillow >5.2
-    commands:
+        - pytest-mpl
+      imports:
+        - hyperspy
+        - hyperspy.Release
+        # - hyperspy._lazy_signals
+        - hyperspy.api
+        - hyperspy.api_nogui
+        - hyperspy.axes
+        - hyperspy.component
+        - hyperspy.components1d
+        - hyperspy.components2d
+        - hyperspy.decorators
+        - hyperspy.defaults_parser
+        - hyperspy.events
+        - hyperspy.exceptions
+        - hyperspy.interactive
+        - hyperspy.io
+        - hyperspy.logger
+        - hyperspy.model
+        - hyperspy.roi
+        - hyperspy.samfire
+        - hyperspy.signal
+        - hyperspy.signal_tools
+        - hyperspy.signals
+        - hyperspy.ui_registry
+        - hyperspy._components
+        - hyperspy._signals
+        - hyperspy.datasets
+        - hyperspy.docstrings
+        - hyperspy.drawing
+        - hyperspy.drawing._markers
+        - hyperspy.drawing._widgets
+        - hyperspy.external
+        - hyperspy.external.astroML
+        - hyperspy.external.mpfit
+        - hyperspy.io_plugins
+        - hyperspy.learn
+        - hyperspy.misc
+        - hyperspy.misc.eds
+        - hyperspy.misc.eels
+        - hyperspy.misc.holography
+        - hyperspy.misc.io
+        - hyperspy.misc.machine_learning
+        - hyperspy.models
+        - hyperspy.samfire_utils
+        - hyperspy.samfire_utils.goodness_of_fit_tests
+        - hyperspy.samfire_utils.segmenters
+        - hyperspy.samfire_utils.weights
+        - hyperspy.utils
+      commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - py.test --pyargs hyperspy --mpl
+        - pytest --pyargs hyperspy --mpl
+
+  - name: hyperspy
+    requirements:
+      run:
+        - python
+        - pyqt
+        - {{ pin_subpackage('hyperspy-base', exact=True) }}
+        - hyperspy-gui-ipywidgets >=1.1
+        - hyperspy-gui-traitsui >=1.1
+        - jupyterlab >=0.35.4
+        - nodejs
+
+  - name: hyperspy-dev
+    requirements:
+      run:
+        - python
+        - cython
+        - {{ pin_subpackage('hyperspy-base', exact=True) }}
+        - pytest
+        - pytest-mpl
+        - matplotlib <3.0  
+        - numpydoc
+        - sphinx
+        - sphinx_rtd_theme
 
 about:
   home: https://hyperspy.org
   license: GPL v3
   summary: Multi-dimensional data analysis
   license_file: COPYING.txt
+  dev_url: https://github.com/hyperspy/hyperspy/
+  doc_url: http://hyperspy.org/hyperspy-doc/current/user_guide/index.html
 
 extra:
   recipe-maintainers:
