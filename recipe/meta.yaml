@@ -114,6 +114,8 @@ outputs:
 
   - name: hyperspy
     requirements:
+      host:
+        - python
       run:
         - python
         - pyqt
@@ -125,6 +127,8 @@ outputs:
 
   - name: hyperspy-dev
     requirements:
+      host:
+        - python
       run:
         - python
         - cython
