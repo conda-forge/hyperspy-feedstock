@@ -10,8 +10,12 @@ source:
   sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
 
 build:
-  number: 1
+  number: 1002
   skip: True  # [py2k]
+
+requirements:
+  host:
+    - python
 
 outputs:
   - name: hyperspy-base
@@ -110,6 +114,8 @@ outputs:
 
   - name: hyperspy
     requirements:
+      host:
+        - python
       run:
         - python
         - pyqt
@@ -121,6 +127,8 @@ outputs:
 
   - name: hyperspy-dev
     requirements:
+      host:
+        - python
       run:
         - python
         - cython
