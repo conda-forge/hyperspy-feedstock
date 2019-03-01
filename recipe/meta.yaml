@@ -58,8 +58,9 @@ outputs:
     test:
       requires:
         - pytest
-        - matplotlib <3.0  
+        - matplotlib <3.0
         - pytest-mpl
+        - xorg-libx11 # [linux]
       imports:
         - hyperspy
         - hyperspy.Release
