@@ -57,7 +57,8 @@ outputs:
         - mrcz
     test:
       requires:
-        - pytest
+        # remove with new hyperspy release
+        - pytest <4.1
         - matplotlib <3.0
         - pytest-mpl
         - xorg-libx11 # [linux]
