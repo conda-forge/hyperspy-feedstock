@@ -57,11 +57,11 @@ outputs:
         - mrcz
     test:
       requires:
-        # remove with new hyperspy release
+        # remove "<4.1" with new hyperspy release
         - pytest <4.1
         - matplotlib <3.0
         - pytest-mpl
-        - xorg-libx11 # [linux]
+        - xorg-libx11  # [linux]
       imports:
         - hyperspy
         - hyperspy.Release
