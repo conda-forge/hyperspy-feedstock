@@ -122,6 +122,7 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - hyperspy-gui-ipywidgets >=1.1
         - hyperspy-gui-traitsui >=1.1
+        - hyperspyui
         - jupyterlab >=0.35.4
         - nodejs
 
