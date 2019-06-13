@@ -110,7 +110,8 @@ outputs:
       commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --mpl
+        # - pytest --pyargs hyperspy --mpl
+        - pytest --pyargs hyperspy
 
   - name: hyperspy
     requirements:
