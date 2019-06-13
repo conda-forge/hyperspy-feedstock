@@ -56,7 +56,7 @@ outputs:
         - pillow >5.2  # [win]
     test:
       requires:
-        - pytest
+        - pytest <4.1
         - matplotlib <3.0  
         - pytest-mpl
       imports:
@@ -135,7 +135,7 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - pytest
         - pytest-mpl
-        - matplotlib <3.0  
+        - matplotlib
         - numpydoc
         - sphinx
         - sphinx_rtd_theme
