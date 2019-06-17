@@ -10,7 +10,7 @@ source:
   sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
 
 build:
-  number: 1002
+  number: 1003
   skip: True  # [py2k]
 
 requirements:
@@ -35,7 +35,7 @@ outputs:
         - h5py
         - ipython
         - jupyter
-        - matplotlib >2.2.2
+        - matplotlib >2.2.2,<3.1
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
@@ -56,9 +56,10 @@ outputs:
         - pillow >5.2  # [win]
     test:
       requires:
-        - pytest
+        - pytest <4.1
         - matplotlib <3.0  
         - pytest-mpl
+        - xorg-libx11  # [linux]
       imports:
         - hyperspy
         - hyperspy.Release
@@ -110,7 +111,8 @@ outputs:
       commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --mpl
+        # - pytest --pyargs hyperspy --mpl
+        - pytest --pyargs hyperspy
 
   - name: hyperspy
     requirements:
@@ -135,7 +137,7 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - pytest
         - pytest-mpl
-        - matplotlib <3.0  
+        - matplotlib
         - numpydoc
         - sphinx
         - sphinx_rtd_theme
