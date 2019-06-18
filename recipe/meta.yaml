@@ -35,7 +35,7 @@ outputs:
         - h5py
         - ipython
         - jupyter
-        - matplotlib >2.2.2,<3.1
+        - matplotlib >2.2.2
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
@@ -57,7 +57,7 @@ outputs:
     test:
       requires:
         - pytest <4.1
-        - matplotlib <3.0  
+        - matplotlib >=3.1  
         - pytest-mpl
         - xorg-libx11  # [linux]
       imports:
@@ -111,8 +111,7 @@ outputs:
       commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        # - pytest --pyargs hyperspy --mpl
-        - pytest --pyargs hyperspy
+        - pytest --pyargs hyperspy --mpl
 
   - name: hyperspy
     requirements:
