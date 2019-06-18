@@ -58,7 +58,7 @@ outputs:
       requires:
         - pytest <4.1
         - matplotlib >=3.1  
-        - freetype <=2.10  
+        - freetype <2.10  
         - pytest-mpl
         - xorg-libx11  # [linux]
       imports:
