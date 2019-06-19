@@ -54,6 +54,8 @@ outputs:
         - numexpr
         - sparse
         - pillow >5.2  # [win]
+        - imageio
+        - mrcz
     test:
       requires:
         - pytest <4.1
