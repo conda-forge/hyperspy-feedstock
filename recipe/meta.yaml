@@ -1,4 +1,4 @@
-{% set version = "1.4.1" %}
+{% set version = "1.4.2" %}
 
 package:
   name: hyperspy-meta
@@ -10,7 +10,7 @@ source:
   sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
 
 build:
-  number: 1003
+  number: 0
   skip: True  # [py2k]
 
 requirements:
