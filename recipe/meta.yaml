@@ -1,4 +1,4 @@
-{% set version = "1.4.1" %}
+{% set version = "1.4.2" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 1527bc374e539b07d64e6d95ac30b351c3e9ed0183886084b993f70c696045d9 
+  sha256: 912e59bf4ee8bbda56138c3ac4635bcae4c47d0e00cd4cc1ab9e5dc4f32cd3df 
 
 build:
-  number: 1003
+  number: 0
   skip: True  # [py2k]
 
 requirements:
@@ -35,7 +35,7 @@ outputs:
         - h5py
         - ipython
         - jupyter
-        - matplotlib >2.2.2,<3.1
+        - matplotlib >2.2.2
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
@@ -54,16 +54,19 @@ outputs:
         - numexpr
         - sparse
         - pillow >5.2  # [win]
+        - imageio
+        - mrcz
     test:
       requires:
         - pytest <4.1
-        - matplotlib <3.0  
+        - matplotlib >=3.1  
+        - freetype <2.10  
         - pytest-mpl
         - xorg-libx11  # [linux]
       imports:
         - hyperspy
         - hyperspy.Release
-        # - hyperspy._lazy_signals
+        - hyperspy._lazy_signals
         - hyperspy.api
         - hyperspy.api_nogui
         - hyperspy.axes
@@ -111,8 +114,7 @@ outputs:
       commands:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        # - pytest --pyargs hyperspy --mpl
-        - pytest --pyargs hyperspy
+        - pytest --pyargs hyperspy --mpl
 
   - name: hyperspy
     requirements:
@@ -152,5 +154,5 @@ about:
 
 extra:
   recipe-maintainers:
-    - to266
+    - ericpre
     - francisco-dlp
