@@ -1,4 +1,4 @@
-{% set version = "1.4.2" %}
+{% set version = "1.5" %}
 
 package:
   name: hyperspy-meta
@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 912e59bf4ee8bbda56138c3ac4635bcae4c47d0e00cd4cc1ab9e5dc4f32cd3df 
+  sha256: cd2ff4efc6bdafa4e18d60312ad099a8a91ac2725a137345cd7906c8dc9510ac
 
 build:
   number: 0
@@ -56,6 +56,8 @@ outputs:
         - pillow >5.2  # [win]
         - imageio
         - mrcz
+        - ptable
+        - pyyaml
     test:
       requires:
         - pytest <4.1
@@ -124,8 +126,8 @@ outputs:
         - python
         - pyqt
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets >=1.1
-        - hyperspy-gui-traitsui >=1.1
+        - hyperspy-gui-ipywidgets >=1.2
+        - hyperspy-gui-traitsui >=1.2
         - jupyterlab >=0.35.4
         - nodejs
 
