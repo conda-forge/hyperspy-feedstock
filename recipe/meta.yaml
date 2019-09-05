@@ -37,7 +37,7 @@ outputs:
         - ipython
         - jupyter
         - matplotlib >2.2.2
-        - numpy >1.13,!=1.17
+        - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
         - scipy >=0.15
