@@ -10,7 +10,7 @@ source:
   sha256: 2f90ad42d2ae2f158756dffb51b55442fbcfd0515f251860d6e42048447ce2d3
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py2k]
 
 requirements:
@@ -36,7 +36,7 @@ outputs:
         - ipython
         - jupyter
         - matplotlib >2.2.2
-        - numpy >1.13,!=1.17
+        - numpy >1.13,<1.17
         - scikit-image >=0.13
         - scikit-learn
         - scipy >=0.15
@@ -44,7 +44,7 @@ outputs:
         - ipyparallel
         - sympy
         - natsort
-        - dask >=0.18
+        - dask >=0.18,<2.3.0
         - traits >=4.5
         - requests
         - tqdm >=0.4.9
