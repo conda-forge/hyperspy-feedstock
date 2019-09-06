@@ -1,4 +1,4 @@
-{% set version = "1.5.1" %}
+{% set version = "1.5.2" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 2f90ad42d2ae2f158756dffb51b55442fbcfd0515f251860d6e42048447ce2d3
+  sha256: 5271fd3fa3e437ea9aaa201cd1724f5cd60e53dcc0741a74e86d55ea1b101ff6
 
 build:
-  number: 2
+  number: 0
   skip: True  # [py2k]
 
 requirements:
@@ -36,7 +36,7 @@ outputs:
         - ipython
         - jupyter
         - matplotlib >2.2.2
-        - numpy >1.13,<1.17
+        - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
         - scipy >=0.15
@@ -44,7 +44,7 @@ outputs:
         - ipyparallel
         - sympy
         - natsort
-        - dask >=0.18,<2.3.0
+        - dask >=0.18
         - traits >=4.5
         - requests
         - tqdm >=0.4.9
