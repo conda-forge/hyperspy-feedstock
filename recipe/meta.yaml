@@ -49,7 +49,7 @@ outputs:
         - requests
         - tqdm >=0.4.9
         - python-dateutil >=2.5
-        - pint >0.8
+        - pint >0.8,<0.10
         - numba
         - numexpr
         - sparse
