@@ -42,7 +42,7 @@ outputs:
         - scipy >=0.15,<1.4
         - statsmodels
         - ipyparallel
-        - sympy
+        - sympy <1.5
         - natsort
         - dask >=0.18
         - traits >=4.5
