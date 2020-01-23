@@ -39,7 +39,7 @@ outputs:
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
-        - scipy >=0.15
+        - scipy >=0.15,<1.4
         - statsmodels
         - ipyparallel
         - sympy
