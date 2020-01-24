@@ -10,7 +10,7 @@ source:
   sha256: 5271fd3fa3e437ea9aaa201cd1724f5cd60e53dcc0741a74e86d55ea1b101ff6
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
 
 requirements:
@@ -39,17 +39,17 @@ outputs:
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
-        - scipy >=0.15
+        - scipy >=0.15,<1.4
         - statsmodels
         - ipyparallel
-        - sympy
+        - sympy <1.5
         - natsort
         - dask >=0.18
         - traits >=4.5
         - requests
         - tqdm >=0.4.9
         - python-dateutil >=2.5
-        - pint >0.8
+        - pint >0.8,<0.10
         - numba
         - numexpr
         - sparse
