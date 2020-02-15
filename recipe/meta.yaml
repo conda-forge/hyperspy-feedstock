@@ -10,7 +10,7 @@ source:
   sha256: 5271fd3fa3e437ea9aaa201cd1724f5cd60e53dcc0741a74e86d55ea1b101ff6
 
 build:
-  number: 1
+  number: 2
   skip: True  # [py2k]
 
 requirements:
@@ -35,7 +35,7 @@ outputs:
         - h5py
         - ipython
         - jupyter
-        - matplotlib >2.2.2
+        - matplotlib-base >2.2.2
         - numpy >1.13
         - scikit-image >=0.13
         - scikit-learn
@@ -61,7 +61,7 @@ outputs:
     test:
       requires:
         - pytest <4.1
-        - matplotlib >=3.1  
+        - matplotlib-base >=3.1  
         - freetype <2.10  
         - pytest-mpl
         - xorg-libx11  # [linux]
@@ -141,7 +141,7 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - pytest
         - pytest-mpl
-        - matplotlib
+        - matplotlib-base
         - numpydoc
         - sphinx
         - sphinx_rtd_theme
