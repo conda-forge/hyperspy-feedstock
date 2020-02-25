@@ -139,10 +139,8 @@ outputs:
       run:
         - python
         - cython
-        - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - pytest
         - pytest-mpl
-        - matplotlib-base
         - numpydoc
         - sphinx
         - sphinx_rtd_theme
