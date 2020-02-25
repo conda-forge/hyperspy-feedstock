@@ -129,6 +129,7 @@ outputs:
         - hyperspy-gui-ipywidgets >=1.2
         - hyperspy-gui-traitsui >=1.2
         - jupyterlab >=0.35.4
+        - matplotlib
         - nodejs
 
   - name: hyperspy-dev
