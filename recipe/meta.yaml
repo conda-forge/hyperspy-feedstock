@@ -34,7 +34,6 @@ outputs:
         - dill
         - h5py
         - ipython
-        - jupyter
         - matplotlib-base >2.2.2
         - numpy >1.13
         - scikit-image >=0.13
