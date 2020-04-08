@@ -144,7 +144,7 @@ outputs:
 
 about:
   home: https://hyperspy.org
-  license: GPL v3
+  license: GPL-3.0-or-later
   summary: Multi-dimensional data analysis
   license_file: COPYING.txt
   dev_url: https://github.com/hyperspy/hyperspy/
