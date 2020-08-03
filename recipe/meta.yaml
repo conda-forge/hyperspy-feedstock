@@ -1,4 +1,4 @@
-{% set version = "1.5.2" %}
+{% set version = "1.6.0" %}
 
 package:
   name: hyperspy-meta
@@ -6,11 +6,13 @@ package:
 
 source:
   fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 5271fd3fa3e437ea9aaa201cd1724f5cd60e53dcc0741a74e86d55ea1b101ff6
+  # url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version
+  # }}.tar.gz
+  url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.6.tar.gz
+  sha256: 3368836ec76c7e5643470be4583594559869b81184e75b1e5f5db15879e331c6
 
 build:
-  number: 2
+  number: 0
   skip: True  # [py2k]
 
 requirements:
@@ -36,7 +38,7 @@ outputs:
         - ipython
         - matplotlib-base >2.2.2
         - numpy >1.13
-        - scikit-image >=0.13,<0.17
+        - scikit-image >=0.15
         - scikit-learn
         - scipy >=0.15,<1.4
         - statsmodels
@@ -46,7 +48,7 @@ outputs:
         - dask >=0.18
         - traits >=4.5
         - requests
-        - tqdm >=0.4.9
+        - tqdm >=4.9.0
         - python-dateutil >=2.5
         - pint >0.8,<0.10
         - numba
@@ -57,6 +59,8 @@ outputs:
         - mrcz
         - ptable
         - pyyaml
+        - tifffile >=2018.10.18
+        - pyusid >=0.0.7
     test:
       requires:
         - pytest <4.1
