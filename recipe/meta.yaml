@@ -97,7 +97,7 @@ outputs:
         - hyperspy.drawing._markers
         - hyperspy.drawing._widgets
         - hyperspy.external
-        - hyperspy.external.astroML
+        - hyperspy.external.astropy
         - hyperspy.external.mpfit
         - hyperspy.io_plugins
         - hyperspy.learn
