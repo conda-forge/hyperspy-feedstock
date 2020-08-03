@@ -61,7 +61,7 @@ outputs:
         - pyusid >=0.0.7
     test:
       requires:
-        - pytest <4.1
+        - pytest
         - matplotlib-base >=3.1,<3.2
         - freetype >=2.9,<2.10
         - pytest-mpl
