@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.6.tar.gz
-  sha256: 3368836ec76c7e5643470be4583594559869b81184e75b1e5f5db15879e331c6
+  sha256: 24be156c692f6bca6afa41ff3b431875023cc5f94145950d356145ad16c042ee
 
 build:
   number: 0
@@ -43,7 +43,7 @@ outputs:
         - ipyparallel
         - sympy <1.5
         - natsort
-        - dask >=0.18
+        - dask >2.0
         - traits >=4.5
         - requests
         - tqdm >=4.9.0
