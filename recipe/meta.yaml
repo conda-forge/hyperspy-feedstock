@@ -38,7 +38,7 @@ outputs:
         - numpy >1.13
         - scikit-image >=0.15
         - scikit-learn
-        - scipy >=0.15,<1.4
+        - scipy >=1.4
         - statsmodels
         - ipyparallel
         - sympy <1.5
@@ -48,7 +48,7 @@ outputs:
         - requests
         - tqdm >=4.9.0
         - python-dateutil >=2.5
-        - pint >0.8,<0.10
+        - pint >=0.10
         - numba
         - numexpr
         - sparse
