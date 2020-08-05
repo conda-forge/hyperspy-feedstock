@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://github.com/francisco-dlp/hyperspy/archive/RELEASE_v1.6.tar.gz
-  sha256: 76a9cedf58fd656e1fa43fd3c2390fce29c83246aece5c8c3685a386b80d3306
+  sha256: 840741311799700adbcf6c0424355e8154b5bb9b5133c1dd80101b32a6994575
 
 build:
   number: 0
