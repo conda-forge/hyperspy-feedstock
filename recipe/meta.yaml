@@ -32,7 +32,7 @@ outputs:
       run:
         - python
         - dill
-        - h5py
+        - h5py <3.0
         - ipython
         - matplotlib-base >2.2.2
         - numpy >1.13
