@@ -34,7 +34,7 @@ outputs:
         - dill
         - h5py <3.0
         - ipython
-        - matplotlib-base >2.2.2
+        - matplotlib-base >2.2.3
         - numpy >1.13
         - scikit-image >=0.15
         - scipy >=1.0.1
@@ -42,7 +42,8 @@ outputs:
         - ipyparallel
         - sympy
         - natsort
-        - dask >2.0
+        - dask-core >2.0
+        - toolz
         - traits >=4.5
         - requests
         - tqdm >=4.9.0
