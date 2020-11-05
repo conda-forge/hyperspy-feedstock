@@ -64,6 +64,7 @@ outputs:
         - pip
         - pytest
         - pytest-mpl
+        - dask-core >2.0,<2.3
       imports:
         - hyperspy
         - hyperspy.Release
