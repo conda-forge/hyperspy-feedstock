@@ -53,7 +53,7 @@ outputs:
         - sparse
         - statsmodels
         - sympy
-        - tifffile >=2018.10.18
+        - tifffile >=2018.10.18,<2020.08.13
         - toolz
         - tqdm >=4.9.0
         - traits >=4.5
