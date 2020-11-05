@@ -25,43 +25,43 @@ outputs:
       build:
         - {{ compiler('c') }}
       host:
-        - python
-        - setuptools
         - cython
         - pip
-      run:
         - python
+        - setuptools
+      run:
+        - dask-core >2.0
         - dill
         - h5py <3.0
+        - imageio
+        - ipyparallel
         - ipython
         - matplotlib-base >2.2.3
+        - natsort
+        - numba
+        - numexpr       
         - numpy >1.13
+        - pint >=0.10
+        - pillow >5.2  # [win]
+        - ptable
+        - python
+        - python-dateutil >=2.5
+        - pyyaml
+        - requests
         - scikit-image >=0.15
         - scipy >=1.0.1
-        - statsmodels
-        - ipyparallel
-        - sympy
-        - natsort
-        - dask-core >2.0
-        - toolz
-        - traits >=4.5
-        - requests
-        - tqdm >=4.9.0
-        - python-dateutil >=2.5
-        - pint >=0.10
-        - numba
-        - numexpr
         - sparse
-        - pillow >5.2  # [win]
-        - imageio
-        - ptable
-        - pyyaml
+        - statsmodels
+        - sympy
         - tifffile >=2018.10.18
+        - toolz
+        - tqdm >=4.9.0
+        - traits >=4.5
     test:
       requires:
-        - pytest
-        - matplotlib-base >=3.1,<3.2
         - freetype >=2.9,<2.10
+        - matplotlib-base >=3.1,<3.2
+        - pytest
         - pytest-mpl
       imports:
         - hyperspy
@@ -121,29 +121,29 @@ outputs:
       host:
         - python
       run:
-        - python
-        - pyqt
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - hyperspy-gui-ipywidgets >=1.3
         - hyperspy-gui-traitsui >=1.3
-        - scikit-learn
+        - imagecodecs
         - matplotlib
         - mrcz
-        - imagecodecs
+        - pyqt
+        - python
         - pyusid >=0.0.7
+        - scikit-learn
 
   - name: hyperspy-dev
     requirements:
       host:
         - python
       run:
-        - python
         - cython
-        - pytest
-        - pytest-mpl
         - freetype >=2.9,<2.10
         - matplotlib-base >=3.1,<3.2
         - numpydoc
+        - pytest
+        - pytest-mpl
+        - python
         - sphinx
         - sphinx_rtd_theme
 
