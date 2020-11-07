@@ -5,11 +5,13 @@ Home: https://hyperspy.org
 
 Package license: GPL-3.0-or-later
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hyperspy-feedstock/blob/master/LICENSE.txt)
 
 Summary: Multi-dimensional data analysis
 
+Development: https://github.com/hyperspy/hyperspy/
 
+Documentation: http://hyperspy.org/hyperspy-doc/current/user_guide/index.html
 
 Current build status
 ====================
