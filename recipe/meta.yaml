@@ -1,4 +1,4 @@
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 
 package:
   name: hyperspy-meta
@@ -7,11 +7,11 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: f569c31d9910c0d38fa39164a79764847228e04a67fb49d697955e24b4e63392
+  sha256: a06631844223f6de0ad4f83a455051ba6a31c8de77c3ee637ed7de1e43193731
 
 build:
-  number: 2
-  skip: True  # [py2k]
+  number: 0
+  skip: true  # [py2k]
 
 requirements:
   host:
@@ -32,18 +32,18 @@ outputs:
       run:
         - dask-core >2.0
         - dill
-        - h5py <3.0
+        - h5py
         - imageio
         - ipyparallel
         - ipython
         - matplotlib-base >2.2.3
         - natsort
         - numba
-        - numexpr       
-        - numpy >1.13
+        - numexpr
+        - numpy >1.15.4
         - pint >=0.10
         - pillow >5.2  # [win]
-        - ptable
+        - prettytable
         - python
         - python-dateutil >=2.5
         - pyyaml
@@ -51,9 +51,8 @@ outputs:
         - scikit-image >=0.15
         - scipy >=1.0.1
         - sparse
-        - statsmodels
         - sympy
-        - tifffile >=2018.10.18,<2020.08.13
+        - tifffile >=2018.10.18
         - toolz
         - tqdm >=4.9.0
         - traits >=4.5
@@ -64,7 +63,6 @@ outputs:
         - pip
         - pytest
         - pytest-mpl
-        - dask-core >2.0,<2.3
       imports:
         - hyperspy
         - hyperspy.Release
@@ -134,6 +132,7 @@ outputs:
         - pyqt
         - python
         - pyusid >=0.0.7
+        - sidpy
         - scikit-learn
 
   - name: hyperspy-dev
@@ -147,6 +146,7 @@ outputs:
         - numpydoc
         - pytest
         - pytest-mpl
+        - pytest-xdist
         - python
         - sphinx
         - sphinx_rtd_theme
