@@ -32,7 +32,7 @@ outputs:
       run:
         - dask-core >2.0
         - dill
-        - h5py <3.0
+        - h5py
         - imageio
         - ipyparallel
         - ipython
@@ -40,10 +40,10 @@ outputs:
         - natsort
         - numba
         - numexpr
-        - numpy >1.13
+        - numpy >1.15.4
         - pint >=0.10
         - pillow >5.2  # [win]
-        - ptable
+        - prettytable
         - python
         - python-dateutil >=2.5
         - pyyaml
@@ -51,9 +51,8 @@ outputs:
         - scikit-image >=0.15
         - scipy >=1.0.1
         - sparse
-        - statsmodels
         - sympy
-        - tifffile >=2018.10.18,<2020.08.13
+        - tifffile >=2018.10.18
         - toolz
         - tqdm >=4.9.0
         - traits >=4.5
@@ -64,7 +63,6 @@ outputs:
         - pip
         - pytest
         - pytest-mpl
-        - dask-core >2.0,<2.3
       imports:
         - hyperspy
         - hyperspy.Release
@@ -134,6 +132,7 @@ outputs:
         - pyqt
         - python
         - pyusid >=0.0.7
+        - sidpy
         - scikit-learn
 
   - name: hyperspy-dev
@@ -147,6 +146,7 @@ outputs:
         - numpydoc
         - pytest
         - pytest-mpl
+        - pytest-xdist
         - python
         - sphinx
         - sphinx_rtd_theme
