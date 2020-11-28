@@ -1,4 +1,4 @@
-{% set version = "1.6.0" %}
+{% set version = "1.6.1" %}
 
 package:
   name: hyperspy-meta
@@ -7,11 +7,11 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: f569c31d9910c0d38fa39164a79764847228e04a67fb49d697955e24b4e63392
+  sha256: a06631844223f6de0ad4f83a455051ba6a31c8de77c3ee637ed7de1e43193731
 
 build:
-  number: 2
-  skip: True  # [py2k]
+  number: 0
+  skip: true  # [py2k]
 
 requirements:
   host:
@@ -39,7 +39,7 @@ outputs:
         - matplotlib-base >2.2.3
         - natsort
         - numba
-        - numexpr       
+        - numexpr
         - numpy >1.13
         - pint >=0.10
         - pillow >5.2  # [win]
