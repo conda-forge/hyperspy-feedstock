@@ -11,7 +11,6 @@ source:
 
 build:
   number: 0
-  skip: true  # [py2k]
 
 requirements:
   host:
@@ -30,17 +29,17 @@ outputs:
         - python
         - setuptools
       run:
-        - dask-core >2.0
+        - dask-core >2.1.0
         - dill
         - h5py
         - imageio
         - ipyparallel
         - ipython
-        - matplotlib-base >2.2.3
+        - matplotlib-base >=2.2.3
         - natsort
         - numba
         - numexpr
-        - numpy >1.15.4
+        - numpy >1.17.1
         - pint >=0.10
         - pillow >5.2  # [win]
         - prettytable
@@ -49,7 +48,7 @@ outputs:
         - pyyaml
         - requests
         - scikit-image >=0.15
-        - scipy >=1.0.1
+        - scipy >=1.1
         - sparse
         - sympy
         - tifffile >=2018.10.18
