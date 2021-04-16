@@ -114,6 +114,9 @@ outputs:
         - pytest --pyargs hyperspy
 
   - name: hyperspy
+    build:
+      # We don't need it for ppc64le and it avoid running out of time on travis
+      skip: True  # [ppc64le]
     requirements:
       host:
         - python
@@ -131,6 +134,10 @@ outputs:
         - scikit-learn
 
   - name: hyperspy-dev
+    build:
+      # We don't need it for ppc64le and it avoid running out of time on travis
+      # and drone
+      skip: True  # [ppc64le or aarch64]
     requirements:
       host:
         - python
