@@ -111,7 +111,10 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy
+        - pytest --pyargs hyperspy  # [not (aarch64 or ppcle64)]
+        # Skip this "crop_left" test (bug in the test itself)
+        # Skip this "RPCA" test, which seems to be hanging the build on travis
+        - pytest --pyargs hyperspy -k "not RPCA and not crop_left"  # [aarch64 or ppcle64]
 
   - name: hyperspy
     build:
