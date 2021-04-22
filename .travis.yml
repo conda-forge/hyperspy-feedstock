@@ -2,7 +2,7 @@
 # update the conda-forge.yml and/or the recipe/meta.yaml.
 
 language: generic
-dist: bionic
+dist: focal
 
 
 matrix:
