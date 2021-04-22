@@ -114,7 +114,7 @@ outputs:
         - pytest --pyargs hyperspy  # [not (aarch64 or ppc64le)]
         # Skip this "crop_left" test (bug in the test itself)
         # Skip this "RPCA" test, which seems to be hanging the build on travis
-        - pytest --pyargs hyperspy -k "not RPCA and not crop_left"  # [aarch64 or ppc64le]
+        - pytest --pyargs hyperspy -k "not RPCA and not crop_left"  # [aarch64]
 
   - name: hyperspy
     build:
