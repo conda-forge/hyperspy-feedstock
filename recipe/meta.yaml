@@ -117,10 +117,10 @@ outputs:
         - set MPLBACKEND=agg  # [win]
         # Tidy up for next hyperspy release
         # Skip the "load_readonly" test, not working with latest dask (bug in the test itself)
-        - pytest --pyargs hyperspy -n 2 -k "not load_readonly"  # [not (aarch64 or ppc64le or win)]
+        - pytest --pyargs hyperspy -n 2 -k "not load_readonly and not test_plot_spectra"  # [not (aarch64 or ppc64le or win)]
         - pytest --pyargs hyperspy -k "not load_readonly"  # [win]
         # Skip the "crop_left" test (bug in the test itself)
-        - pytest --pyargs hyperspy -n 4 -k "not load_readonly and not crop_left"  # [aarch64]
+        - pytest --pyargs hyperspy -n 4 -k "not load_readonly and not crop_left and not test_plot_spectra"  # [aarch64]
 
   - name: hyperspy
     build:
