@@ -10,7 +10,7 @@ source:
   sha256: 303def6f59057f0fc228fa2947754aff362ec444671a3bf2264d0020f4f448d8
 
 build:
-  number: 2
+  number: 3
 
 requirements:
   host:
@@ -22,6 +22,9 @@ outputs:
     script: install.bat  # [win]
     requirements:
       build:
+        - python                              # [build_platform != target_platform]
+        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
+        - cython                              # [build_platform != target_platform]
         - {{ compiler('c') }}
       host:
         - cython
@@ -59,6 +62,7 @@ outputs:
       requires:
         - pip
         - pytest
+        - pytest-xdist
       imports:
         - hyperspy
         - hyperspy.Release
@@ -111,10 +115,11 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy  # [not (aarch64 or ppc64le)]
-        # Skip this "crop_left" test (bug in the test itself)
-        # Skip this "RPCA" test, which seems to be hanging the build on travis
-        - pytest --pyargs hyperspy -k "not RPCA and not crop_left"  # [aarch64]
+        # Tidy up for next hyperspy release
+        # Skip the "load_readonly" test, not working with latest dask (bug in the test itself)
+        - pytest --pyargs hyperspy --dist loadfile -n 2 -k "not load_readonly"  # [not (aarch64 or ppc64le)]
+        # Skip the "crop_left" test (bug in the test itself)
+        - pytest --pyargs hyperspy --dist loadfile -n 4 -k "not load_readonly and not crop_left"  # [aarch64]
 
   - name: hyperspy
     build:
@@ -130,7 +135,6 @@ outputs:
         - imagecodecs
         - matplotlib
         - mrcz
-        - pyqt
         - python
         - pyusid >=0.0.7
         - sidpy
