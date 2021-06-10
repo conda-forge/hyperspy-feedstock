@@ -36,6 +36,7 @@ outputs:
         - dill
         - h5py
         - imageio
+        - importlib_metadata >=3.6
         - ipyparallel
         - ipython
         - matplotlib-base >=3.1.0
