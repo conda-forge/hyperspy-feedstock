@@ -1,3 +1,5 @@
 #!/bin/bash
 
-$PYTHON -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+rm -f pyproject.toml
+
+$PYTHON -m pip install . --no-deps --use-feature=in-tree-build -vvv
