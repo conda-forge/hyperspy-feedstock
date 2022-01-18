@@ -38,7 +38,8 @@ outputs:
         - imageio
         - importlib_metadata >=3.6
         - ipyparallel
-        - ipython
+        # https://github.com/ipython/ipython/pull/13466
+        - ipython !=8.0
         - matplotlib-base >=3.1.0,<3.5
         - natsort
         - numba
