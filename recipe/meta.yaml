@@ -58,9 +58,11 @@ outputs:
         - scipy >=1.1
         - sparse
         - sympy
-        - tifffile >=2020.2.16
+        # until https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/256 is merged
+        - tifffile >=2020.2.16,!=2022.4.22
         - tqdm >=4.9.0
         - traits >=4.5
+        - zarr >=2.9
     test:
       requires:
         - pip
