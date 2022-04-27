@@ -1,4 +1,4 @@
-{% set version = "1.6.5" %}
+{% set version = "1.7.0" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 040d21c40e609d6c4b7b2c9e283a5ccf398450f5996a1dc2442d29e44e03793a
+  sha256: 49b3ea491fb5392227e7bcdbd8028c47b8c5aa9346dac58e02bff08f06ea1244
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   host:
@@ -32,7 +32,7 @@ outputs:
         - python
         - setuptools
       run:
-        - dask-core >2.1.0
+        - dask-core >2.11.0
         - dill
         - h5py
         - imageio
@@ -40,9 +40,10 @@ outputs:
         - ipyparallel
         # https://github.com/ipython/ipython/pull/13466
         - ipython !=8.0
-        - matplotlib-base >=3.1.0,<3.5
+        - jinja2
+        - matplotlib-base >=3.1.3
         - natsort
-        - numba
+        - numba >=0.52
         - numexpr
         - numpy >=1.17.1
         - packaging
@@ -57,9 +58,11 @@ outputs:
         - scipy >=1.1
         - sparse
         - sympy
-        - tifffile >=2019.12.3
+        # until https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/256 is merged
+        - tifffile >=2020.2.16,!=2022.4.22
         - tqdm >=4.9.0
         - traits >=4.5
+        - zarr >=2.9
     test:
       requires:
         - pip
@@ -117,7 +120,7 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --dist loadfile -n 2  # [not ppc64le]
+        - pytest --pyargs hyperspy --dist loadfile -k "not read_fail and not tvips_file_reader and not nonconvolved" -n 2  # [not ppc64le]
 
   - name: hyperspy
     build:
@@ -147,8 +150,8 @@ outputs:
         - python
       run:
         - cython
-        - freetype >=2.9,<2.10  # [py<=38]
-        - matplotlib-base >=3.1,<3.2  # [py<=38]
+        - freetype >=2.10,<2.11
+        - matplotlib-base >=3.5,<3.6
         - numpydoc
         - pytest
         - pytest-mpl
