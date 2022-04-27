@@ -118,7 +118,7 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --dist loadfile -n 2  # [not ppc64le]
+        - pytest --pyargs hyperspy --dist loadfile -k "not read_fail and not tvips_file_reader and not nonconvolved" -n 2 # [not ppc64le]
 
   - name: hyperspy
     build:
