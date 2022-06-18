@@ -123,7 +123,8 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --dist loadfile -k "not read_fail and not tvips_file_reader and not nonconvolved" -n 2  # [not ppc64le and not aarch64]
+        # test_nonconvolved failed on linux python 3.7 (precision issue)
+        - pytest --pyargs hyperspy --dist loadfile -k "not test_nonconvolved" -n 2  # [not ppc64le and not aarch64]
 
   - name: hyperspy
     requirements:
