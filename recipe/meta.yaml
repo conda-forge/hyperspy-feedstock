@@ -1,4 +1,4 @@
-{% set version = "1.7.0" %}
+{% set version = "1.7.1" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 49b3ea491fb5392227e7bcdbd8028c47b8c5aa9346dac58e02bff08f06ea1244
+  sha256: d90b9a4a03f5575b8c6247cc1450d76cf156987997fdb32d316f10825c85f8bb
 
 build:
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -62,8 +62,7 @@ outputs:
         - scipy >=1.1
         - sparse
         - sympy
-        # until https://github.com/conda-forge/conda-forge-repodata-patches-feedstock/pull/256 is merged
-        - tifffile >=2020.2.16,!=2022.4.22
+        - tifffile >=2020.2.16
         - tqdm >=4.9.0
         - traits >=4.5
         - zarr >=2.9
@@ -124,7 +123,8 @@ outputs:
         - pip check
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --dist loadfile -k "not read_fail and not tvips_file_reader and not nonconvolved" -n 2  # [not ppc64le and not aarch64]
+        # test_nonconvolved failed on linux python 3.7 (precision issue)
+        - pytest --pyargs hyperspy --dist loadfile -k "not test_nonconvolved" -n 2  # [not ppc64le and not aarch64]
 
   - name: hyperspy
     requirements:
@@ -132,8 +132,8 @@ outputs:
         - python
       run:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets >=1.3
-        - hyperspy-gui-traitsui >=1.3  # [not arm64 or not ppc64le]
+        - hyperspy-gui-ipywidgets >=1.5
+        - hyperspy-gui-traitsui >=1.5  # [not ppc64le]
         - imagecodecs
         - matplotlib
         - mrcz
