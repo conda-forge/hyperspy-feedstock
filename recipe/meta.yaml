@@ -72,9 +72,11 @@ outputs:
         - pytest
         - pytest-xdist
       imports:
+        # Skip some import on aarch64 because of packaging issue with scikit-image
+        # https://github.com/conda-forge/scikit-image-feedstock/issues/93
         - hyperspy
         - hyperspy.Release
-        - hyperspy._lazy_signals
+        - hyperspy._lazy_signals  # [not aarch64]
         - hyperspy.api
         - hyperspy.api_nogui
         - hyperspy.axes
@@ -96,7 +98,7 @@ outputs:
         - hyperspy.signals
         - hyperspy.ui_registry
         - hyperspy._components
-        - hyperspy._signals
+        - hyperspy._signals  # [not aarch64]
         - hyperspy.datasets
         - hyperspy.docstrings
         - hyperspy.drawing
@@ -113,7 +115,7 @@ outputs:
         - hyperspy.misc.holography
         - hyperspy.misc.io
         - hyperspy.misc.machine_learning
-        - hyperspy.models
+        - hyperspy.models  # [not aarch64]
         - hyperspy.samfire_utils
         - hyperspy.samfire_utils.goodness_of_fit_tests
         - hyperspy.samfire_utils.segmenters
