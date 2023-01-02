@@ -128,7 +128,8 @@ outputs:
         - export MPLBACKEND=agg  # [unix]
         - set MPLBACKEND=agg  # [win]
         # test_nonconvolved failed on linux python 3.7 (precision issue)
-        - pytest --pyargs hyperspy --dist loadfile -k "not test_nonconvolved" -n 2  # [not ppc64le and not aarch64]
+        # test_jeol cause memory errors on windows, to be removed in hyperspy 2.0
+        - pytest --pyargs hyperspy --dist loadfile -k "not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64]
 
   - name: hyperspy
     requirements:
