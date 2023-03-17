@@ -61,7 +61,7 @@ outputs:
         - pyyaml
         - requests
         - scikit-image >=0.15
-        - scipy >=1.1
+        - scipy >=1.4.0
         - sparse
         - sympy
         - tifffile >=2020.2.16
