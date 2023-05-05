@@ -39,7 +39,7 @@ outputs:
         - dask-core >2.11.0
         - dill
         - h5py
-        - imageio
+        - imageio <2.28
         - importlib_metadata >=3.6
         - ipyparallel
         # https://github.com/ipython/ipython/pull/13466
