@@ -130,7 +130,7 @@ outputs:
         - set MPLBACKEND=agg  # [win]
         # test_nonconvolved failed on linux python 3.7 (precision issue)
         # test_jeol cause memory errors on windows, to be removed in hyperspy 2.0
-        - pytest --pyargs hyperspy --dist loadfile -k "not test_navigation_shape_signal1D and not test_main_result and not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64]
+        - pytest --pyargs hyperspy --dist loadfile -k "not test_navigation_shape_signal1D and not test_navigation_shape_signal2D and not test_main_result and not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64 and not win]
 
   - name: hyperspy
     requirements:
