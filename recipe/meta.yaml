@@ -1,4 +1,4 @@
-{% set version = "1.7.5" %}
+{% set version = "1.7.6" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 120039ac800af75d93d8f1c3d44e2cc791e9bfa650a766749b7dbfe0385958a8
+  sha256: 6910897f055aa31f5c29f045d879c4310b783ab0377e3cd3fa2f6ebb93a0ed87
 
 build:
-  number: 1
+  number: 0
 
 requirements:
   build:
@@ -51,10 +51,10 @@ outputs:
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
         - numexpr
-        - numpy >=1.17.1
+        - numpy >=1.19
         - packaging
         - pint >=0.10
-        - pillow >5.2  # [win]
+        - pillow >5.2,<10.1
         - prettytable
         - python
         - python-dateutil >=2.5
@@ -72,6 +72,7 @@ outputs:
       requires:
         - pip
         - pytest
+        - pooch
         - pytest-xdist
       imports:
         # Skip some import on aarch64 because of packaging issue with scikit-image
@@ -129,7 +130,7 @@ outputs:
         - set MPLBACKEND=agg  # [win]
         # test_nonconvolved failed on linux python 3.7 (precision issue)
         # test_jeol cause memory errors on windows, to be removed in hyperspy 2.0
-        - pytest --pyargs hyperspy --dist loadfile -k "not test_navigation_shape_signal1D and not test_main_result and not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64]
+        - pytest --pyargs hyperspy --dist loadfile -k "not test_navigation_shape_signal1D and not test_navigation_shape_signal2D and not test_main_result and not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64 and not win]
 
   - name: hyperspy
     requirements:
