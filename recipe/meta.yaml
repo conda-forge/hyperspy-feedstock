@@ -1,4 +1,4 @@
-{% set version = "1.7.6" %}
+{% set version = "2.0" %}
 
 package:
   name: hyperspy-meta
@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 6910897f055aa31f5c29f045d879c4310b783ab0377e3cd3fa2f6ebb93a0ed87
+  sha256: fd4387dc82de6499246811d6e76410377271437620cc22d46bc570840666201d
 
 build:
   number: 0
