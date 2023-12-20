@@ -1,4 +1,4 @@
-{% set version = "1.7.6" %}
+{% set version = "2.0" %}
 
 package:
   name: hyperspy-meta
@@ -7,79 +7,60 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 6910897f055aa31f5c29f045d879c4310b783ab0377e3cd3fa2f6ebb93a0ed87
+  sha256: fd4387dc82de6499246811d6e76410377271437620cc22d46bc570840666201d
 
 build:
   number: 0
 
-requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
-    - cython                                 # [build_platform != target_platform]
-  host:
-    - python
-
 outputs:
   - name: hyperspy-base
-    script: install.sh  # [not win]
-    script: install.bat  # [win]
+    build:
+      noarch: python
+    script: install.sh
     requirements:
-      build:
-        - python                              # [build_platform != target_platform]
-        - cross-python_{{ target_platform }}  # [build_platform != target_platform]
-        - cython                              # [build_platform != target_platform]
-        - {{ compiler('c') }}
       host:
-        - cython
         - pip
-        - python
-        - setuptools
+        - python >=3.8
+        - setuptools >=64
+        - setuptools_scm >=8
       run:
-        - dask-core >2.11.0
-        - dill
+        - cloudpickle
+        - dask-core >2021.3.1
         - h5py
-        - imageio <2.28
         - importlib_metadata >=3.6
-        - ipyparallel
-        # https://github.com/ipython/ipython/pull/13466
-        - ipython !=8.0
         - jinja2
         - matplotlib-base >=3.1.3
         - natsort
-        # Use numba >=0.54 to have the correct numpy pinning in conda-forge
-        # https://github.com/conda-forge/numba-feedstock/pull/83
-        - numba >=0.54
-        - numexpr
-        - numpy >=1.19
+        - numpy >=1.20
         - packaging
         - pint >=0.10
-        - pillow >5.2,<10.1
+        - pooch
         - prettytable
-        - python
+        - python >=3.8
         - python-dateutil >=2.5
         - pyyaml
         - requests
-        - scikit-image >=0.15
-        - scipy >=1.4.0
-        - sparse
+        - rosettasciio-base
+        - scikit-image >=0.18
+        - scipy >=1.5.0
         - sympy
-        - tifffile >=2020.2.16
         - tqdm >=4.9.0
         - traits >=4.5
-        - zarr >=2.9
     test:
       requires:
         - pip
         - pytest
         - pooch
+        # necessary to run the test suite, `conftest.py` to be tweaked in hyperspy
+        # to remove this requirement
+        - pytest-mpl
+        - pytest-rerunfailures
         - pytest-xdist
+        # don't use python 3.12 until rosettasciio-base is available
+        - python ==3.11
       imports:
-        # Skip some import on aarch64 because of packaging issue with scikit-image
-        # https://github.com/conda-forge/scikit-image-feedstock/issues/93
         - hyperspy
-        - hyperspy.Release
-        - hyperspy._lazy_signals  # [not aarch64]
+        - hyperspy._lazy_signals
         - hyperspy.api
         - hyperspy.api_nogui
         - hyperspy.axes
@@ -101,8 +82,8 @@ outputs:
         - hyperspy.signals
         - hyperspy.ui_registry
         - hyperspy._components
-        - hyperspy._signals  # [not aarch64]
-        - hyperspy.datasets
+        - hyperspy._signals
+        - hyperspy.data
         - hyperspy.docstrings
         - hyperspy.drawing
         - hyperspy.drawing._markers
@@ -110,15 +91,10 @@ outputs:
         - hyperspy.external
         - hyperspy.external.astropy
         - hyperspy.external.mpfit
-        - hyperspy.io_plugins
         - hyperspy.learn
         - hyperspy.misc
-        - hyperspy.misc.eds
-        - hyperspy.misc.eels
-        - hyperspy.misc.holography
-        - hyperspy.misc.io
         - hyperspy.misc.machine_learning
-        - hyperspy.models  # [not aarch64]
+        - hyperspy.models
         - hyperspy.samfire_utils
         - hyperspy.samfire_utils.goodness_of_fit_tests
         - hyperspy.samfire_utils.segmenters
@@ -126,35 +102,34 @@ outputs:
         - hyperspy.utils
       commands:
         - pip check
-        - export MPLBACKEND=agg  # [unix]
-        - set MPLBACKEND=agg  # [win]
-        # test_nonconvolved failed on linux python 3.7 (precision issue)
-        # test_jeol cause memory errors on windows, to be removed in hyperspy 2.0
-        - pytest --pyargs hyperspy --dist loadfile -k "not test_navigation_shape_signal1D and not test_navigation_shape_signal2D and not test_main_result and not test_nonconvolved and not test_jeol" -n 2  # [not ppc64le and not aarch64 and not win]
+        - export MPLBACKEND=agg
+        - pytest --pyargs hyperspy --dist loadfile -n 2
 
   - name: hyperspy
+    build:
+      noarch: python
     requirements:
       host:
-        - python
+        - python >=3.8
       run:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
-        - hyperspy-gui-ipywidgets >=1.5
-        - hyperspy-gui-traitsui >=1.5  # [not ppc64le]
-        - imagecodecs
+        - ipympl
+        - hyperspy-gui-ipywidgets >=2.0
+        - hyperspy-gui-traitsui >=2.0
         - matplotlib
-        - mrcz
-        - python
-        - pyusid >=0.0.7
+        # Use numba >=0.54 to have the correct numpy pinning in conda-forge
+        # https://github.com/conda-forge/numba-feedstock/pull/83
+        - numba >=0.54
+        - numexpr
+        - python >=3.8
         - scikit-learn
 
   - name: hyperspy-dev
     build:
-      # We don't need it for ppc64le and it avoid running out of time on travis
-      # and drone
-      skip: true  # [ppc64le or aarch64]
+      noarch: python
     requirements:
       host:
-        - python
+        - python >=3.8
       run:
         - cython
         - freetype >=2.10,<2.11
@@ -162,8 +137,9 @@ outputs:
         - numpydoc
         - pytest
         - pytest-mpl
+        - pytest-rerunfailures
         - pytest-xdist
-        - python
+        - python >=3.8
         - sphinx
         - sphinx_rtd_theme
 

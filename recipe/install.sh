@@ -1,5 +1,3 @@
 #!/bin/bash
 
-rm -f pyproject.toml
-
-$PYTHON -m pip install . --no-deps -vvv
+$PYTHON -m pip install . -vv --no-deps --no-build-isolation
