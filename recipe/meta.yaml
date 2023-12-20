@@ -50,7 +50,13 @@ outputs:
         - pip
         - pytest
         - pooch
+        # necessary to run the test suite, `conftest.py` to be tweaked in hyperspy
+        # to remove this requirement
+        - pytest-mpl
+        - pytest-rerunfailures
         - pytest-xdist
+        # don't use python 3.12 until rosettasciio-base is available
+        - python ==3.11
       imports:
         - hyperspy
         - hyperspy._lazy_signals
@@ -76,7 +82,7 @@ outputs:
         - hyperspy.ui_registry
         - hyperspy._components
         - hyperspy._signals
-        - hyperspy.datasets
+        - hyperspy.data
         - hyperspy.docstrings
         - hyperspy.drawing
         - hyperspy.drawing._markers
@@ -84,10 +90,8 @@ outputs:
         - hyperspy.external
         - hyperspy.external.astropy
         - hyperspy.external.mpfit
-        - hyperspy.io_plugins
         - hyperspy.learn
         - hyperspy.misc
-        - hyperspy.misc.io
         - hyperspy.misc.machine_learning
         - hyperspy.models
         - hyperspy.samfire_utils
@@ -128,6 +132,7 @@ outputs:
         - numpydoc
         - pytest
         - pytest-mpl
+        - pytest-rerunfailures
         - pytest-xdist
         - python >=3.8
         - sphinx
