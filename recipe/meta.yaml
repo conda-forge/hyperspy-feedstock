@@ -15,11 +15,11 @@ build:
 
 outputs:
   - name: hyperspy-base
-    script: {{ PYTHON }} -m pip install . -vv --no-build-isolation
+    script: install.sh
     requirements:
       host:
         - pip
-        - python
+        - python >=3.8
         - setuptools >=64
         - setuptools_scm >=8
       run:
@@ -35,7 +35,7 @@ outputs:
         - pint >=0.10
         - pooch
         - prettytable
-        - python
+        - python >=3.8
         - python-dateutil >=2.5
         - pyyaml
         - requests
@@ -103,7 +103,7 @@ outputs:
   - name: hyperspy
     requirements:
       host:
-        - python
+        - python >=3.8
       run:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - ipympl
@@ -114,13 +114,13 @@ outputs:
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
         - numexpr
-        - python
+        - python >=3.8
         - scikit-learn
 
   - name: hyperspy-dev
     requirements:
       host:
-        - python
+        - python >=3.8
       run:
         - cython
         - freetype >=2.10,<2.11
@@ -129,7 +129,7 @@ outputs:
         - pytest
         - pytest-mpl
         - pytest-xdist
-        - python
+        - python >=3.8
         - sphinx
         - sphinx_rtd_theme
 
