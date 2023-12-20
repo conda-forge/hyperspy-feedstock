@@ -52,10 +52,8 @@ outputs:
         - pooch
         - pytest-xdist
       imports:
-        # Skip some import on aarch64 because of packaging issue with scikit-image
-        # https://github.com/conda-forge/scikit-image-feedstock/issues/93
         - hyperspy
-        - hyperspy._lazy_signals  # [not aarch64]
+        - hyperspy._lazy_signals
         - hyperspy.api
         - hyperspy.api_nogui
         - hyperspy.axes
@@ -77,7 +75,7 @@ outputs:
         - hyperspy.signals
         - hyperspy.ui_registry
         - hyperspy._components
-        - hyperspy._signals  # [not aarch64]
+        - hyperspy._signals
         - hyperspy.datasets
         - hyperspy.docstrings
         - hyperspy.drawing
@@ -91,7 +89,7 @@ outputs:
         - hyperspy.misc
         - hyperspy.misc.io
         - hyperspy.misc.machine_learning
-        - hyperspy.models  # [not aarch64]
+        - hyperspy.models
         - hyperspy.samfire_utils
         - hyperspy.samfire_utils.goodness_of_fit_tests
         - hyperspy.samfire_utils.segmenters
@@ -99,9 +97,8 @@ outputs:
         - hyperspy.utils
       commands:
         - pip check
-        - export MPLBACKEND=agg  # [unix]
-        - set MPLBACKEND=agg  # [win]
-        - pytest --pyargs hyperspy --dist loadfile -n 2  # [not ppc64le and not aarch64 and not win]
+        - export MPLBACKEND=agg
+        - pytest --pyargs hyperspy --dist loadfile -n 2
 
   - name: hyperspy
     requirements:
@@ -111,7 +108,7 @@ outputs:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - ipympl
         - hyperspy-gui-ipywidgets >=2.0
-        - hyperspy-gui-traitsui >=2.0  # [not ppc64le]
+        - hyperspy-gui-traitsui >=2.0
         - matplotlib
         # Use numba >=0.54 to have the correct numpy pinning in conda-forge
         # https://github.com/conda-forge/numba-feedstock/pull/83
@@ -121,10 +118,6 @@ outputs:
         - scikit-learn
 
   - name: hyperspy-dev
-    build:
-      # We don't need it for ppc64le and it avoid running out of time on travis
-      # and drone
-      skip: true  # [ppc64le or aarch64]
     requirements:
       host:
         - python
