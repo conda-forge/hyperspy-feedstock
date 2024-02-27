@@ -1,4 +1,4 @@
-{% set version = "2.0" %}
+{% set version = "2.0.1" %}
 
 package:
   name: hyperspy-meta
@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: fd4387dc82de6499246811d6e76410377271437620cc22d46bc570840666201d
+  sha256: 4f77a5caa1515030add81a03c460129377a851ffacefbf3627b6cf4854e18c18
 
 build:
   number: 0
@@ -42,7 +42,7 @@ outputs:
         - requests
         - rosettasciio-base
         - scikit-image >=0.18
-        - scipy >=1.5.0
+        - scipy >=1.6.0
         - sympy
         - tqdm >=4.9.0
         - traits >=4.5
