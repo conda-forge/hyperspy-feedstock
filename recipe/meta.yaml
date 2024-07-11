@@ -1,4 +1,4 @@
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: hyperspy-meta
@@ -7,7 +7,7 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 34944f86311b8679e2e33b38eb3b11f1d771cf1a047017d54471bf2364fc354d
+  sha256: c7cf31d874e0548ff52cd8b62ea953e4dbffebc577bdd5cb350156223d660251
 
 build:
   number: 0
@@ -25,7 +25,7 @@ outputs:
         - setuptools_scm >=8
       run:
         - cloudpickle
-        - dask-core >2021.3.1
+        - dask-core >=2021.5.1
         - h5py
         - importlib_metadata >=3.6
         - jinja2
