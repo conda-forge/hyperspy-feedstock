@@ -25,7 +25,7 @@ outputs:
         - setuptools_scm >=8
       run:
         - cloudpickle
-        - dask-core >2021.3.1
+        - dask-core >=2021.5.1
         - h5py
         - importlib_metadata >=3.6
         - jinja2
