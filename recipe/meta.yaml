@@ -6,7 +6,7 @@ package:
 
 source:
   fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
   sha256: 7ee769a9eb39eaf220546c3a869265b4461945bdd02468aa88665f5a5d8fa632
 
 build:
@@ -27,15 +27,15 @@ outputs:
         - cloudpickle
         - dask-core >=2021.5.1
         - h5py
-        - importlib_metadata >=3.6
+        - importlib-metadata >=3.6
         - jinja2
-        - matplotlib-base >=3.1.3
+        - matplotlib-base >=3.6
         - natsort
         - numpy >=1.20
         - packaging
         - pint >=0.10
         - pooch
-        - prettytable
+        - prettytable >=2.3
         - python >=3.8
         - python-dateutil >=2.5
         - pyyaml
@@ -43,7 +43,7 @@ outputs:
         - rosettasciio-base
         - scikit-image >=0.18
         - scipy >=1.6.0
-        - sympy
+        - sympy >=1.6
         - tqdm >=4.9.0
         - traits >=4.5
     test:
@@ -51,9 +51,6 @@ outputs:
         - pip
         - pytest
         - pooch
-        # necessary to run the test suite, `conftest.py` to be tweaked in hyperspy
-        # to remove this requirement
-        - pytest-mpl
         - pytest-rerunfailures
         - pytest-xdist
         - python
@@ -120,7 +117,7 @@ outputs:
         - numba >=0.54
         - numexpr
         - python >=3.8
-        - scikit-learn
+        - scikit-learn >=1.0.1
 
   - name: hyperspy-dev
     build:
@@ -130,8 +127,8 @@ outputs:
         - python >=3.8
       run:
         - cython
-        - freetype >=2.10,<2.11
-        - matplotlib-base >=3.5,<3.6
+        - freetype >=2.12,<2.13
+        - matplotlib-base >=3.9,<3.10
         - numpydoc
         - pytest
         - pytest-mpl
