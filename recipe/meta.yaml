@@ -49,8 +49,9 @@ outputs:
     test:
       requires:
         - pip
-        - pytest
         - pooch
+        - pytest
+        - pytest-mpl
         - pytest-rerunfailures
         - pytest-xdist
         - python
