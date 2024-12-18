@@ -10,7 +10,7 @@ source:
   sha256: 7ee769a9eb39eaf220546c3a869265b4461945bdd02468aa88665f5a5d8fa632
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: hyperspy-base
@@ -20,7 +20,7 @@ outputs:
     requirements:
       host:
         - pip
-        - python >=3.8
+        - python {{ python_min }}
         - setuptools >=64
         - setuptools_scm >=8
       run:
@@ -36,7 +36,7 @@ outputs:
         - pint >=0.10
         - pooch
         - prettytable >=2.3
-        - python >=3.8
+        - python >={{ python_min }}
         - python-dateutil >=2.5
         - pyyaml
         - requests
@@ -54,7 +54,7 @@ outputs:
         - pytest-mpl
         - pytest-rerunfailures
         - pytest-xdist
-        - python
+        - python {{ python_min }}
       imports:
         - hyperspy
         - hyperspy._lazy_signals
@@ -106,7 +106,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
         - ipympl
@@ -117,7 +117,7 @@ outputs:
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
         - numexpr
-        - python >=3.8
+        - python >={{ python_min }}
         - scikit-learn >=1.0.1
 
   - name: hyperspy-dev
@@ -125,7 +125,7 @@ outputs:
       noarch: python
     requirements:
       host:
-        - python >=3.8
+        - python {{ python_min }}
       run:
         - cython
         - freetype >=2.12,<2.13
@@ -135,7 +135,7 @@ outputs:
         - pytest-mpl
         - pytest-rerunfailures
         - pytest-xdist
-        - python >=3.8
+        - python >={{ python_min }}
         - sphinx
         - sphinx_rtd_theme
 
