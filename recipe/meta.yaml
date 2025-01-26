@@ -112,7 +112,7 @@ outputs:
         - ipympl
         - hyperspy-gui-ipywidgets >=2.0
         - hyperspy-gui-traitsui >=2.0
-        - matplotlib
+        - pyqt
         # Use numba >=0.54 to have the correct numpy pinning in conda-forge
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
