@@ -25,8 +25,8 @@ outputs:
         - setuptools_scm >=8
       run:
         - cloudpickle
-        - dask-core >=2021.5.1
-        - h5py
+        - dask-core >=2022.9.2
+        - h5py >=2.3
         - importlib-metadata >=3.6
         - jinja2
         - matplotlib-base >=3.6
@@ -43,8 +43,8 @@ outputs:
         - rosettasciio-base
         - scikit-image >=0.18
         - scipy >=1.6.0
-        - sympy >=1.6
-        - tqdm >=4.9.0
+        - sympy >=1.10
+        - tqdm >=4.59.0
         - traits >=4.5
     test:
       requires:
@@ -109,14 +109,17 @@ outputs:
         - python {{ python_min }}
       run:
         - {{ pin_subpackage('hyperspy-base', exact=True) }}
+        - dask-image
         - ipympl
         - hyperspy-gui-ipywidgets >=2.0
         - hyperspy-gui-traitsui >=2.0
-        - pyqt
         # Use numba >=0.54 to have the correct numpy pinning in conda-forge
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
-        - numexpr
+        - numexpr >=2.8
+        - pentapy
+        - pybaselines
+        - pyqt
         - python >={{ python_min }}
         - scikit-learn >=1.0.1
 
