@@ -117,7 +117,8 @@ outputs:
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
         - numexpr >=2.8
-        - pentapy
+        # Until https://github.com/conda-forge/pentapy-feedstock/pull/19 is merged
+        # - pentapy
         - pybaselines
         - pyqt
         - python >={{ python_min }}
