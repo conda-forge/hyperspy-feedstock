@@ -99,7 +99,9 @@ outputs:
       commands:
         - pip check
         - export MPLBACKEND=agg
-        - pytest --pyargs hyperspy --dist loadfile -n 2
+        # remove with next release of hyperspy (>2.3.0)
+        # https://github.com/hyperspy/hyperspy/pull/3554
+        - pytest --pyargs hyperspy --dist loadfile -n 2 -k "not map_values_std_isset"
 
   - name: hyperspy
     build:
