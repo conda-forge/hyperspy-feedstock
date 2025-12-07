@@ -10,7 +10,7 @@ source:
   sha256: 14ceb3f66d7f2926c4a73f4a54c4f38a8a5266eb78b991c31dcaba35a67d5f78
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: hyperspy-base
@@ -99,7 +99,9 @@ outputs:
       commands:
         - pip check
         - export MPLBACKEND=agg
-        - pytest --pyargs hyperspy --dist loadfile -n 2
+        # remove with next release of hyperspy (>2.3.0)
+        # https://github.com/hyperspy/hyperspy/pull/3554
+        - pytest --pyargs hyperspy --dist loadfile -n 2 -k "not map_values_std_isset"
 
   - name: hyperspy
     build:
@@ -117,31 +119,11 @@ outputs:
         # https://github.com/conda-forge/numba-feedstock/pull/83
         - numba >=0.54
         - numexpr >=2.8
-        # Until https://github.com/conda-forge/pentapy-feedstock/pull/19 is merged
-        # - pentapy
+        - pentapy
         - pybaselines
         - pyqt
         - python >={{ python_min }}
         - scikit-learn >=1.0.1
-
-  - name: hyperspy-dev
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - cython
-        - freetype >=2.12,<2.13
-        - matplotlib-base >=3.9,<3.10
-        - numpydoc
-        - pytest
-        - pytest-mpl
-        - pytest-rerunfailures
-        - pytest-xdist
-        - python >={{ python_min }}
-        - sphinx
-        - sphinx_rtd_theme
 
 about:
   home: https://hyperspy.org
