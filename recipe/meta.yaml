@@ -125,25 +125,6 @@ outputs:
         - python >={{ python_min }}
         - scikit-learn >=1.0.1
 
-  - name: hyperspy-dev
-    build:
-      noarch: python
-    requirements:
-      host:
-        - python {{ python_min }}
-      run:
-        - cython
-        - freetype >=2.12,<2.13
-        - matplotlib-base >=3.9,<3.10
-        - numpydoc
-        - pytest
-        - pytest-mpl
-        - pytest-rerunfailures
-        - pytest-xdist
-        - python >={{ python_min }}
-        - sphinx
-        - sphinx_rtd_theme
-
 about:
   home: https://hyperspy.org
   license: GPL-3.0-or-later
