@@ -1,4 +1,4 @@
-{% set version = "2.3.0" %}
+{% set version = "2.4.0" %}
 
 package:
   name: hyperspy-meta
@@ -7,10 +7,10 @@ package:
 source:
   fn: hyperspy-{{ version }}.tar.gz
   url: https://pypi.org/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 14ceb3f66d7f2926c4a73f4a54c4f38a8a5266eb78b991c31dcaba35a67d5f78
+  sha256: 0c7a3b2136f690ebf7b9c0bcd8a81f89871722b732cf201f257ac07b9845d077
 
 build:
-  number: 3
+  number: 0
 
 outputs:
   - name: hyperspy-base
@@ -25,27 +25,25 @@ outputs:
         - setuptools_scm >=8
       run:
         - cloudpickle
-        - dask-core >=2022.9.2
-        - h5py >=2.3
+        - dask-core >=2023.2.1
+        - h5py
+        - imageio
         - importlib-metadata >=3.6
         - jinja2
         - matplotlib-base >=3.6
         - natsort
-        - numpy >=1.20
+        - numpy >=1.22.0
         - packaging
+        - pillow
         - pint >=0.10
-        - pooch
         - prettytable >=2.3
         - python >={{ python_min }}
-        - python-dateutil >=2.5
         - pyyaml
-        - requests
-        - rosettasciio-base
-        - scikit-image >=0.18
-        - scipy >=1.6.0
+        - rosettasciio-base >=0.12.0
+        - scipy >=1.8.0
         - sympy >=1.10
         - tqdm >=4.59.0
-        - traits >=4.5
+        - traits >=6.4.0
     test:
       requires:
         - pip
@@ -57,7 +55,6 @@ outputs:
         - python {{ python_min }}
       imports:
         - hyperspy
-        - hyperspy._lazy_signals
         - hyperspy.api
         - hyperspy.axes
         - hyperspy.component
@@ -78,7 +75,6 @@ outputs:
         - hyperspy.signals
         - hyperspy.ui_registry
         - hyperspy._components
-        - hyperspy._signals
         - hyperspy.data
         - hyperspy.docstrings
         - hyperspy.drawing
@@ -99,9 +95,7 @@ outputs:
       commands:
         - pip check
         - export MPLBACKEND=agg
-        # remove with next release of hyperspy (>2.3.0)
-        # https://github.com/hyperspy/hyperspy/pull/3554
-        - pytest --pyargs hyperspy --dist loadfile -n 2 -k "not map_values_std_isset"
+        - pytest --pyargs hyperspy --dist loadfile -n 2
 
   - name: hyperspy
     build:
@@ -115,15 +109,14 @@ outputs:
         - ipympl
         - hyperspy-gui-ipywidgets >=2.1.0
         - hyperspy-gui-traitsui >=2.1.0
-        # Use numba >=0.54 to have the correct numpy pinning in conda-forge
-        # https://github.com/conda-forge/numba-feedstock/pull/83
-        - numba >=0.54
-        - numexpr >=2.8
+        - numba >=0.56.0
+        - numexpr >=2.8.0
         - pentapy
         - pybaselines
         - pyqt
         - python >={{ python_min }}
-        - scikit-learn >=1.0.1
+        - scikit-image >=0.19
+        - scikit-learn >=1.6.0
 
 about:
   home: https://hyperspy.org

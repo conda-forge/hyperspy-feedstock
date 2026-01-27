@@ -33,7 +33,6 @@ Current release info
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy-green.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy.svg)](https://anaconda.org/conda-forge/hyperspy) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy--base-green.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy-base.svg)](https://anaconda.org/conda-forge/hyperspy-base) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-hyperspy--dev-green.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/hyperspy-dev.svg)](https://anaconda.org/conda-forge/hyperspy-dev) |
 
 Installing hyperspy-meta
 ========================
@@ -45,16 +44,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `hyperspy, hyperspy-base, hyperspy-dev` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `hyperspy, hyperspy-base` can be installed with `conda`:
 
 ```
-conda install hyperspy hyperspy-base hyperspy-dev
+conda install hyperspy hyperspy-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install hyperspy hyperspy-base hyperspy-dev
+mamba install hyperspy hyperspy-base
 ```
 
 It is possible to list all of the versions of `hyperspy` available on your platform with `conda`:
