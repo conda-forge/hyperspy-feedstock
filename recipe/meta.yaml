@@ -27,12 +27,14 @@ outputs:
         - cloudpickle
         - dask-core >=2023.2.1
         - h5py
+        - imageio
         - importlib-metadata >=3.6
         - jinja2
         - matplotlib-base >=3.6
         - natsort
         - numpy >=1.22.0
         - packaging
+        - pillow
         - pint >=0.10
         - prettytable >=2.3
         - python >={{ python_min }}
