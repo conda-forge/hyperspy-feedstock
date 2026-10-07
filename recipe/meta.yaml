@@ -111,6 +111,7 @@ outputs:
         - hyperspy-gui-traitsui >=2.1.0
         - numba >=0.58.0
         - numexpr >=2.8.0
+        - odrpack
         - pentapy
         - pybaselines
         - pyqt
