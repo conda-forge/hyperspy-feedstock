@@ -1,4 +1,4 @@
-{% set version = "2.4.0" %}
+{% set version = "2.5.0" %}
 
 package:
   name: hyperspy-meta
@@ -6,8 +6,8 @@ package:
 
 source:
   fn: hyperspy-{{ version }}.tar.gz
-  url: https://pypi.org/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
-  sha256: 0c7a3b2136f690ebf7b9c0bcd8a81f89871722b732cf201f257ac07b9845d077
+  url: https://files.pythonhosted.org/packages/source/h/hyperspy/hyperspy-{{ version }}.tar.gz
+  sha256: eafc7fb1c616bd571b757839fc9f69ef6ca09c7e6def89878f87a27afcb39756
 
 build:
   number: 0
@@ -25,14 +25,14 @@ outputs:
         - setuptools_scm >=8
       run:
         - cloudpickle
-        - dask-core >=2023.2.1
+        - dask-core >=2024.12.0
         - h5py
         - imageio
         - importlib-metadata >=3.6
         - jinja2
         - matplotlib-base >=3.6
         - natsort
-        - numpy >=1.22.0
+        - numpy >=1.25.0
         - packaging
         - pillow
         - pint >=0.10
@@ -40,10 +40,10 @@ outputs:
         - python >={{ python_min }}
         - pyyaml
         - rosettasciio-base >=0.12.0
-        - scipy >=1.8.0
+        - scipy >=1.10.0
         - sympy >=1.10
         - tqdm >=4.59.0
-        - traits >=6.4.0
+        - traits >=7.0.0
     test:
       requires:
         - pip
@@ -109,13 +109,13 @@ outputs:
         - ipympl
         - hyperspy-gui-ipywidgets >=2.1.0
         - hyperspy-gui-traitsui >=2.1.0
-        - numba >=0.56.0
+        - numba >=0.58.0
         - numexpr >=2.8.0
         - pentapy
         - pybaselines
         - pyqt
         - python >={{ python_min }}
-        - scikit-image >=0.19
+        - scikit-image >=0.19.0
         - scikit-learn >=1.6.0
 
 about:
