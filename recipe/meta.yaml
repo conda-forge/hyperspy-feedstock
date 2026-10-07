@@ -10,7 +10,7 @@ source:
   sha256: eafc7fb1c616bd571b757839fc9f69ef6ca09c7e6def89878f87a27afcb39756
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: hyperspy-base
